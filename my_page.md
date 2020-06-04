@@ -1,6 +1,6 @@
 ---
 title: My Page
-permalink: /Article/
+permalink: /article/
 ---
 Hello World!
 
