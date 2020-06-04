@@ -3,7 +3,7 @@ author: SungBeomChoi
 email: choisb3631@neubility.co.kr # email for form submission, you also have to change it in _js/scripts.js
 description: 강화학습 + 뉴럴넷을 공부하는 학생입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://https://sungbeomchoi.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sungbeomchoi.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  SUNGBEOMCHOI # replace with your_github_username or comment to remove link from footer
 
 # Build settings
