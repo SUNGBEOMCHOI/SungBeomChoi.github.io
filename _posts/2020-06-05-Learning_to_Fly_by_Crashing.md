@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning to Fly by Clashing 논문 리뷰
+title: Learning to Fly by Crashing 논문 리뷰
 featured-img: Learning to Fly by Clashing/Learning_to_Fly_by_Crashing_모델구조
 ---
 
