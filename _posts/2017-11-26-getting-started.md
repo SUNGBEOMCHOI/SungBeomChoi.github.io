@@ -4,7 +4,8 @@ title: Learning to Fly by Clashing 논문 리뷰
 ---
 
 ## 목적
-적은 비용으로 indoor 환경에서 드론 자율주행 학습
+적은 비용으로 indoor 환경에서 드론이 장애물과 부딪히지 않는 자율주행 학습
+[(영상)](https://www.youtube.com/watch?v=HbHqC8HimoI)
 
 ## 선행연구
 localization 및 path_planning 에 대한 연구들
