@@ -44,9 +44,11 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   * initialization을 위해 imageNet-Pretrained weights를 사용
   
   policy 학습 의사코드: 
+  
   ![policy 학습 의사코드](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Policy_for_flying_indoor.PNG)
   
   Learning to Fly by Crashing 모델 구조:
+  
   ![Learning to Fly by Crashing 모델 구조](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_모델구조.PNG)
   
 ## 연구결과
