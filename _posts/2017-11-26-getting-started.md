@@ -1,73 +1,27 @@
 ---
 layout: post
-title: Getting Started with Sleek
-featured-img: sleek
+title: Learning to Fly by Clashing
 ---
 
-## Getting started
+## 목적
+적은 비용으로 indoor 환경에서 드론 자율주행 학습
 
-[GitHub Pages](https://pages.github.com) can automatically generate and serve the website for you.
-Let's say you have a username/organisation `my-org` and project `my-proj`; if you locate Jekyll source under `docs` folder of master branch in your repo `github.com/my-org/my-proj`, the website will be served on `my-org.github.io/my-proj`.
-The good thing about coupling your documentation with the source repo is, whenever you merge features with regarding content to master branch, it will also be published in the webpage instantly.
+## 선행연구
+localization 및 path_planning 에 대한 연구들
+1. slam
+..* 비싼 computational cost으로 real time에는 적합하지 않음
+2. depth estimation method
+..* 짧은 배터리와 적재 용량의 문제
+3. stereo vision bsaed estimation
+..* 하얀 벽과 같은 plain surface에서는 localization이 힘듬
+4. monocular camera based methods use vanishing points as a guidance
+..* 여전히 range sensor에 의존
+5. 사람이 운행한 데이터를 통한 학습
+..* 데이터를 수집하기 어렵고, 실패에 대한 데이터를 찾기가 힘듬.
+6. 시뮬레이션을 통한 학습
+..* 실제 환경과의 괴리가 있어 제대로 적용이 안됨.
 
-1. Just download the source from [github.com/janczizikow/sleek](https://github.com/janczizikow/sleek/) into your repo under `docs` folder.
-2. Edit site settings in  `_config.yml` file according to your project.
-3. Replace `favicon.ico` and `img/logonav.png` with your own logo.
+RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised learning을 통해 학습을 사용함.
 
-## Writing content
-
-### Docs
-
-Docs are [collections](https://jekyllrb.com/docs/collections/) of pages stored under `_docs` folder. To create a new page:
-
-**1.** Create a new Markdown as `_docs/my-page.md` and write [front matter](https://jekyllrb.com/docs/frontmatter/) & content such as:
-
-```
----
-title: My Page
-permalink: /docs/my-page/
----
-
-Hello World!
-```
-
-**2.** Add the pagename to `_pages/docs.yml` file in order to list in docs navigation panel:
-
-```
-- title: My Group Title
-  docs:
-  - my-page
-```
-
-### Blog posts
-
-Add a new Markdown file such as `2017-05-09-my-post.md` and write the content similar to other post examples.
-
-### Pages
-
-The home page is located under `index.md` file. You can change the content or design completely different welcome page for your taste.
-
-In order to add a new page, create a new html or markdown file under root directory and link it in `_includes/header.html`.
-
-### Images TODO
-
-Introduce gulp optimization
-
-Breakpoint | Image Type | Width | Retina
------------- | ------------ | ------------- | -------------
-xs |Post Thumb | 535px | 1070px
-sm |Post Thumb | 500px| 1000px
-md |Post Thumb | 329.375px | 658.75px
-lg |Post Thumb | 445.625px | 891.25px
-xl |Post Thumb | 353.125px | 706.25px
-
-
-Breakpoint | Image Type | Width | Retina
------------- | ------------ | ------------- | -------------
-xs |Post Hero | 535px | 1070px
-sm |Post Hero | 500px| 1000px
-md |Post Hero | 329.375px | 658.75px
-lg |Post Hero | 445.625px | 891.25px
-xl |Post Hero | 353.125px | 706.25px
-
-Happy hacking!
+## 연구과정
+1. 데이터 수집
