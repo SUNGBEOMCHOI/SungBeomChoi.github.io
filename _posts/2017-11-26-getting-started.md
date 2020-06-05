@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learning to Fly by Clashing 논문 리뷰
+featured-img: Learning to Fly by Clashing/Learning to Fly by Crashing 모델 구조
 ---
 
 ## 목적
@@ -40,10 +41,27 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   * 넣어주는 이미지는 왼쪽, 정면, 오른쪽 이미지로, 한 timestamp에서 모델을 총 3번 돌려서 최적의 방향을 결정
   * AlexNet-architecture를 사용
   * initialization을 위해 imageNet-Pretrained weights를 사용
+  policy 학습 의사코드: 
+  ![policy 학습 의사코드](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/assets/img/posts/Learning to Fly by Clashing/Policy for flying indoor.png)
+  Learning to Fly by Crashing 모델 구조:
+  ![Learning to Fly by Crashing 모델 구조](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/assets/img/posts/Learning to Fly by Clashing/Learning to Fly by Crashing 모델 구조.png)
   
 ## 연구결과
-비교군은 총 3가지임.
+### 비교군은 총 3가지임.
 1. straight line policy : 그냥 직진만 함
 2. Depth prediction based policy : monocular camera를 통한 depth map을 이용하는 방법
 3. 사람이 직접 운행하는 방법 : 사람은 드론에서 전송되는 monocular 이미지를 보고, 조이스틱으로 사람이 직접 운행
 
+### 실험장소는 총 6장소
+  - Glass door
+  - NSH 4th Floor
+  - NSH Entrance
+  - Hallway
+  - Hallway with Chairs
+  - Wean Hall
+![연구 결과](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/assets/img/posts/Learning to Fly by Clashing/실험 결과.png')
+
+### 결과 분석
+- glass door과 같은 투명하거나 반사성이 있는 물체는 depth 측정이 힘들다. 본 연구는 문에 있는 걸쇠 등과 같은 특징으로 학습한 듯하다.
+- hallway with chair 환경같은 cluttered한 환경에서는 사람보다 더 좋은 성능을 냈다.
+- hallway는 untextured environment에서는 depth base모델이 학습이 힘든듯하다.
