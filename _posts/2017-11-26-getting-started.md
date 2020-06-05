@@ -31,7 +31,8 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   * slam based인 자율주행을 통한 수집 -> bias issue로 X 
   * naive random straight line traectories로 수집
     - 랜덤으로 주행하다가 부딪히면 origin으로 돌아오고, 다시 실험하고를 반복하여 데이터를 수집
-    - origin위치로 돌아오는 것은 IMU가 row accuracy이기 때문에 PTAM모듈을 사용함 [PTAM 참고](https://darkpgmr.tistory.com/129)
+    - origin위치로 돌아오는 것은 IMU가 row accuracy이기 때문에 PTAM모듈을 사용함 
+    [PTAM 참고](https://darkpgmr.tistory.com/129)
   
 2. 데이터 전처리
   * 이미지를 close to the colliding object(negative data)와 그 외의 이미지(positive data)로 나눔
@@ -41,8 +42,10 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   * 넣어주는 이미지는 왼쪽, 정면, 오른쪽 이미지로, 한 timestamp에서 모델을 총 3번 돌려서 최적의 방향을 결정
   * AlexNet-architecture를 사용
   * initialization을 위해 imageNet-Pretrained weights를 사용
+  
   policy 학습 의사코드: 
   ![policy 학습 의사코드](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Policy_for_flying_indoor.PNG)
+  
   Learning to Fly by Crashing 모델 구조:
   ![Learning to Fly by Crashing 모델 구조](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_모델구조.PNG)
   
@@ -59,6 +62,7 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   - Hallway
   - Hallway with Chairs
   - Wean Hall
+  
 ![연구 결과](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/%EC%8B%A4%ED%97%98%EA%B2%B0%EA%B3%BC.PNG)
 
 ### 결과 분석
