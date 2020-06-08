@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning to Fly by Crashing 논문 리뷰
-featured-img: https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_%EB%AA%A8%EB%8D%B8%EA%B5%AC%EC%A1%B0.PNG?raw=true
+featured-img: Learning_to_Fly_by_Crashing_모델구조
 ---
 
 ## 목적
