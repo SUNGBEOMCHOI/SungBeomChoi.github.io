@@ -31,3 +31,6 @@ compress_html:
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+
+disqus_url: https://sungbeomchoi-github-io.disqus.com/
+disqus_id: sungbeomchoi-github-io
