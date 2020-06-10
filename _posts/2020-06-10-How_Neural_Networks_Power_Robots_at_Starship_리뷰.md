@@ -12,7 +12,6 @@ featured_img: How_Neural_Networks_Power_Robots_at_Starship_리뷰
 
 ### improving the robot’s ability to adapt and learn
 로봇 소프트웨어 안에는 훈련할 수 있는 units(mostly neural net)이 있고, 이것을 알아서 학습한다.
-
 우리들은 모델을 훈련시킬 때 여러 요소를 더 자세히 생각했다.
 - 창문에 비친 차에 대해서는 어떻게 페널티를 줄 것인가
 - 포스터에 있는 사람이 비춰지면 어떻게 하는가
