@@ -4,7 +4,8 @@ title: Starship Technology CTO Post Review
 featured-img: 2020-06-10-starship_tech_CTO_post_review/starship_cto
 ---
 
-이 포스트에서는 라스트마일 모빌리티 업체 스타쉽 테크놀로지의 CTO가 4년간의 경험을 공유하고자 한다. CTO의 입장으로 글을 리뷰해보겠다.
+라스트마일 모빌리티 업체 스타쉽 테크놀로지의 CTO가 4년간의 경험을 공유한 포스트를 전달하고자 한다.
+스타쉽의 CTO의 입장에서 글을 전달해보도록 하겠다.
 
 4년간의 여행에서 우리는 컴퓨터비전, 경로 계획, 물체 인식 분야에 대해 개발했다.
 우리는 Levenberg-Marquardt알고리즘은 fine tuning했고, 3가지를 개발했다.
