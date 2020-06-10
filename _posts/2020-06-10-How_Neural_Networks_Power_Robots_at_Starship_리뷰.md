@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Neural Networks Power Robots at Starship 리뷰
+title: How Neural Networks Power Robots at Starship Review
 featured-img: 2020-06-10-How_Neural_Networks_Power_Robots_at_Starship_review/starship_technology
 ---
 
