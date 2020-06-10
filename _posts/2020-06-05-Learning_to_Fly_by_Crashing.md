@@ -46,11 +46,11 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   
   policy 학습 의사코드: 
   
-  ![policy 학습 의사코드](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/Learning_to_Fly_by_Clashing/Policy_for_flying_indoor.jpg)
+  ![policy 학습 의사코드](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/2020-06-05-Learning_to_Fly_by_Clashing/Policy_for_flying_indoor.jpg)
   
   Learning to Fly by Crashing 모델 구조:
   
-  ![Learning to Fly by Crashing 모델 구조](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_%EB%AA%A8%EB%8D%B8%EA%B5%AC%EC%A1%B0.jpg?raw=true)
+  ![Learning to Fly by Crashing 모델 구조](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-05-Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_%EB%AA%A8%EB%8D%B8%EA%B5%AC%EC%A1%B0.jpg?raw=true)
   
 ## 연구결과
 ### 비교군은 총 3가지임.
@@ -66,7 +66,7 @@ RL을 통한 학습은 많은 데이터가 필요하기 때문에 supervised lea
   - Hallway with Chairs
   - Wean Hall
   
-![연구 결과](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/Learning_to_Fly_by_Clashing/%EC%8B%A4%ED%97%98%EA%B2%B0%EA%B3%BC.jpg?raw=true)
+![연구 결과](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-05-Learning_to_Fly_by_Clashing/%EC%8B%A4%ED%97%98%EA%B2%B0%EA%B3%BC.jpg?raw=true)
 
 ### 결과 분석
 - glass door과 같은 투명하거나 반사성이 있는 물체는 depth 측정이 힘들다. 본 연구는 문에 있는 걸쇠 등과 같은 특징으로 학습한 듯하다.
