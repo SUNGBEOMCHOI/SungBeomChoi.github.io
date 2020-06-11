@@ -4,6 +4,7 @@ title: Learning to Fly by Crashing 논문 리뷰
 comments: true
 featured-img: 2020-06-05-Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_모델구조
 ---
+#### 논문: [](https://arxiv.org/abs/1704.05588)
 
 ## 목적
 적은 비용으로 indoor 환경에서 드론이 장애물과 부딪히지 않는 자율주행 학습
