@@ -7,8 +7,9 @@ featured-img: 2020-06-05-Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing
 
 ## 목적
 적은 비용으로 indoor 환경에서 드론이 장애물과 부딪히지 않는 자율주행 학습
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/HbHqC8HimoI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- 
+<div>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/HbHqC8HimoI' frameborder='0' allowfullscreen></iframe></div>
+</div>
 ## 선행연구
 localization 및 path_planning 에 대한 연구들
 1. slam
