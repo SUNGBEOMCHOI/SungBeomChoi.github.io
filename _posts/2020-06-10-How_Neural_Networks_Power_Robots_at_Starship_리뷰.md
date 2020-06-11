@@ -43,4 +43,5 @@ featured-img: 2020-06-10-How_Neural_Networks_Power_Robots_at_Starship_review/sta
 전혀 학습되지 않은 데이터에 대해서는 다른 센서들의 도움을 받거나 사람의 원격 조종의 도움을 받는다.
 ![different_models_at_different_env](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-10-How_Neural_Networks_Power_Robots_at_Starship_review/different_models_at_different_env.jpg?raw=true)
 
-[출처](https://medium.com/starshiptechnologies/how-neural-networks-power-robots-at-starship-3262cd317ec0)
+출처: [How Neural Networks Power Robots at Starship by Tanel Pärnamaa
+](https://medium.com/starshiptechnologies/how-neural-networks-power-robots-at-starship-3262cd317ec0)
