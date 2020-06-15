@@ -18,6 +18,7 @@ featured-img: 2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_
 ![step2](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_review/step2.jpg)
 
 마지막 단계는 위성지도를 통해 만든 그래프와 로봇이 수집한 이미지 데이터를 합치는 단계이다. 로봇이 갈 수 있는 길을 정확히 표시해주는 것이다. 
+
 ![step3](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_review/step3.gif)
 
 물론 세상은 계절이나 건물을 짓는 등의 활동으로 인해서 변한다. 세세한 부분에 대해서는 데이터의 양이 충분하기 때문에 robust하다.  큰 변화에 대해서는 업데이트를 해주어야한다. 이것은 로봇이 매일 주행한 데이터를 통하여 업데이트를 해주게된다. 
