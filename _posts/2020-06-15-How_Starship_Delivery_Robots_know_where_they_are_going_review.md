@@ -12,9 +12,11 @@ featured-img: 2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_
 배달로봇은 인도를 통해 이동하고, 횡단보도를 통해 길을 건너기 때문에 정확한 지도가 필요하다. 그렇기 때문에 이 포스트에서는 지도를 만드는 과정에 대해 설명한다. 
 
 첫 번째 단계는 위성지도를 통해 길들을 표시하는 것이다. 인도는 초록색, 횡단보도는 빨간색, 차들이 지나가는 곳은 보라색으로 표현하였다. 이 지도는 노드 그래프로 표현하기 때문에 출발지 A와 목적지 B를 노드로 표현하고 주행하는 경로를 만들고, 가는데 걸리는 거리와 시간을 계산할 수 있다.
+
 ![step1](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_review/step1.jpg)
 
 두 번째 단계는 로봇이 보는 세계를 만들어주는 것이다. 로봇이 처음 주행할 때는 약간의 수동조작이 필요하다. 로봇이 처음 주행할 때 카메라와 여러 센서를 통해서 데이터를 수집한다. 이미지에서는 특징을 가지는 수천개의 선들을 표시한다. 서버에서는 이 선들을 통해 로봇이 사용할 수 있는 3D 지도를 만든다. 로봇은 이 지도를 통해서 그들이 어디있는지 파악할 수 있다. 
+
 ![step2](https://raw.githubusercontent.com/SUNGBEOMCHOI/SungBeomChoi.github.io/master/assets/img/posts/2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_review/step2.jpg)
 
 마지막 단계는 위성지도를 통해 만든 그래프와 로봇이 수집한 이미지 데이터를 합치는 단계이다. 로봇이 갈 수 있는 길을 정확히 표시해주는 것이다. 
