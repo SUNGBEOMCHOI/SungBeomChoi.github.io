@@ -11,7 +11,7 @@ featured-img: 2020-06-16-The_Challenge_of_Supporting_AV_at_Scale_Review/mobileye
 이 회사는 1월에 25분짜리 무편집본으로 예루살렘의 busy traffic환경의 자율주행영상을 올렸다. 진짜 디테일과 기술에 대단하다는 생각이 들었고, 25분동안 시간가는줄 모르고 봤다. 이 영상에서 유일하게 사람의 조작이 들어간 부분은 차를 찍는 드론의 배터리를 교체할 때였다.
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/kJD5R_yQ9aw' frameborder='1' allowfullscreen></iframe></div>
-
+                  
 
 **영상에서 발견한 부분과 설명들에 대해 정리해본다.**
 - 카메라만을 통한 자율주행시스템을 구축했다.
