@@ -7,10 +7,11 @@ featured-img: 2020-06-16-The_Challenge_of_Supporting_AV_at_Scale_Review/mobileye
 #### 이 포스트는 The Challenge of Supporting AV at Scale에 대한 리뷰이다. 
 [The Challenge of Supporting AV at Scale](!https://medium.com/@amnon.shashua/the-challenge-of-supporting-av-at-scale-7c06196cced2)
 
-인텔에 한화 17조에 인수된 자율주행차량 회사인 모빌아이의 자율주행 기술에 대해서 다루고 있다.
+ 인텔에 한화 17조에 인수된 자율주행차량 회사인 모빌아이의 자율주행 기술에 대해서 다루고 있다.
 이 회사는 1월에 25분짜리 무편집본으로 예루살렘의 busy traffic환경의 자율주행영상을 올렸다. 진짜 디테일과 기술에 대단하다는 생각이 들었고, 25분동안 시간가는줄 모르고 봤다. 이 영상에서 유일하게 사람의 조작이 들어간 부분은 차를 찍는 드론의 배터리를 교체할 때였다.
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/kJD5R_yQ9aw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 영상에서 발견한 부분과 설명들에 대해 정리해본다.
 - 카메라만을 통한 자율주행시스템을 구축했다.
