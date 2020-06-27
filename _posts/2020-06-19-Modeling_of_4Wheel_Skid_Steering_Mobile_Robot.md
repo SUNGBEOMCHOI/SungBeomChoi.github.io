@@ -174,7 +174,9 @@ world 좌표계에서의 X, Y 성분에 대한 마찰은 4개의 바퀴의 마�
 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll}&space;F_{r&space;x}(\dot{\boldsymbol{q}})&space;&&space;F_{r&space;y}(\dot{\boldsymbol{q}})&space;&&space;M_{r}(\dot{\boldsymbol{q}})&space;\end{array}\right]^{T}" title="\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll} F_{r x}(\dot{\boldsymbol{q}}) & F_{r y}(\dot{\boldsymbol{q}}) & M_{r}(\dot{\boldsymbol{q}}) \end{array}\right]^{T}" />
 
 전체 로봇에 힘은 input으로 넣어주는 각 바퀴의 힘의 합이다. world 좌표계에서 로봇에 input으로 넣어주는 힘은 다음과 같다.
+
 <img src="https://latex.codecogs.com/gif.latex?F_{x}=\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{i}" title="F_{x}=\cos \theta \sum_{i=1}^{4} F_{i}" />
+
 <img src="https://latex.codecogs.com/gif.latex?F_{y}=\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{i}" title="F_{y}=\sin \theta \sum_{i=1}^{4} F_{i}" />
 
 그리고 COM에 작용하는 input으로 들어가는 torque는 다음과 같다. 
