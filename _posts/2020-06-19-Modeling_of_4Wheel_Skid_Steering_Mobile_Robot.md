@@ -162,6 +162,7 @@ where
 
 world 좌표계에서의 X, Y 성분에 대한 마찰은 4개의 바퀴의 마찰력의 합으로 다음과 같이 쓸 수 있다.
 <img src="https://latex.codecogs.com/gif.latex?F_{r&space;x}(\dot{\boldsymbol{q}})=\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{s&space;i}\left(v_{x&space;i}\right)-\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{l&space;i}\left(v_{y&space;i}\right)" title="F_{r x}(\dot{\boldsymbol{q}})=\cos \theta \sum_{i=1}^{4} F_{s i}\left(v_{x i}\right)-\sin \theta \sum_{i=1}^{4} F_{l i}\left(v_{y i}\right)" />
+
 <img src="https://latex.codecogs.com/gif.latex?F_{r&space;y}(\dot{\boldsymbol{q}})=\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{s&space;i}\left(v_{x&space;i}\right)&plus;\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{l&space;i}\left(v_{y&space;i}\right)" title="F_{r y}(\dot{\boldsymbol{q}})=\sin \theta \sum_{i=1}^{4} F_{s i}\left(v_{x i}\right)+\cos \theta \sum_{i=1}^{4} F_{l i}\left(v_{y i}\right)" />
 
 그리고 COM에 대한 회전 저항력 <img src="https://latex.codecogs.com/gif.latex?M_{r}" title="M_{r}" />은 다음과 같다.
@@ -169,6 +170,7 @@ world 좌표계에서의 X, Y 성분에 대한 마찰은 4개의 바퀴의 마�
 <img src="https://latex.codecogs.com/gif.latex?\begin{aligned}&space;M_{r}(\dot{\boldsymbol{q}})=&-a&space;\sum_{i=1,4}&space;F_{l&space;i}\left(v_{y&space;i}\right)&plus;b&space;\sum_{i=2,3}&space;F_{l&space;i}\left(v_{y&space;i}\right)&space;\\&space;&&plus;c\left[-\sum_{i=1,2}&space;F_{s&space;i}\left(v_{x&space;i}\right)&plus;\sum_{i=3,4}&space;F_{s&space;i}\left(v_{x&space;i}\right)\right]&space;\end{aligned}" title="\begin{aligned} M_{r}(\dot{\boldsymbol{q}})=&-a \sum_{i=1,4} F_{l i}\left(v_{y i}\right)+b \sum_{i=2,3} F_{l i}\left(v_{y i}\right) \\ &+c\left[-\sum_{i=1,2} F_{s i}\left(v_{x i}\right)+\sum_{i=3,4} F_{s i}\left(v_{x i}\right)\right] \end{aligned}" />
 
 따라서 전체적인 resistive forces는  [<img src="https://latex.codecogs.com/gif.latex?X&space;\quad&space;Y&space;\quad&space;\theta" title="X \quad Y \quad \theta" />] 에 따라 다음과 같다.
+
 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll}&space;F_{r&space;x}(\dot{\boldsymbol{q}})&space;&&space;F_{r&space;y}(\dot{\boldsymbol{q}})&space;&&space;M_{r}(\dot{\boldsymbol{q}})&space;\end{array}\right]^{T}" title="\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll} F_{r x}(\dot{\boldsymbol{q}}) & F_{r y}(\dot{\boldsymbol{q}}) & M_{r}(\dot{\boldsymbol{q}}) \end{array}\right]^{T}" />
 
 전체 로봇에 힘은 input으로 넣어주는 각 바퀴의 힘의 합이다. world 좌표계에서 로봇에 input으로 넣어주는 힘은 다음과 같다.
@@ -215,7 +217,8 @@ where
 
 <img src="https://latex.codecogs.com/gif.latex?\ddot{\boldsymbol{q}}=\dot{\boldsymbol{S}}(\boldsymbol{q})&space;\boldsymbol{\eta}&plus;\boldsymbol{S}(\boldsymbol{q})&space;\dot{\boldsymbol{\eta}}" title="\ddot{\boldsymbol{q}}=\dot{\boldsymbol{S}}(\boldsymbol{q}) \boldsymbol{\eta}+\boldsymbol{S}(\boldsymbol{q}) \dot{\boldsymbol{\eta}}" />
 
-위의 식을 통해 전체적으로 정리하면 다음과 같다.
+**위의 식을 통해 전체적으로 정리하면 다음과 같다.**
+
 
 <img src="https://latex.codecogs.com/gif.latex?\bar{M}&space;\dot{\eta}&plus;\bar{C}&space;\eta&plus;\bar{R}=\bar{B}&space;\tau" title="\bar{M} \dot{\eta}+\bar{C} \eta+\bar{R}=\bar{B} \tau" />
 
@@ -229,7 +232,8 @@ where
 
 <img src="https://latex.codecogs.com/gif.latex?\overline{\boldsymbol{B}}=\boldsymbol{S}^{T}&space;\boldsymbol{B}=\frac{1}{r}\left[\begin{array}{cc}&space;1&space;&&space;1&space;\\&space;-c&space;&&space;c&space;\end{array}\right]" title="\overline{\boldsymbol{B}}=\boldsymbol{S}^{T} \boldsymbol{B}=\frac{1}{r}\left[\begin{array}{cc} 1 & 1 \\ -c & c \end{array}\right]" />
 
-각 바퀴에 input으로 넣어주어야하는 torque를 구하기 위한 식을 풀기 위해서 알아야하는 변수들은 아래 표로 정리해두었다.
+
+**각 바퀴에 input으로 넣어주어야하는 torque를 구하기 위한 식을 풀기 위해서 알아야하는 변수들은 아래 표로 정리해두었다.**
 |  |  |  |  |  |
 |--|--|--|--|--|
 | <img src="https://latex.codecogs.com/gif.latex?m" title="m" /> | <img src="https://latex.codecogs.com/gif.latex?x_{\mathrm{ICR}}" title="x_{\mathrm{ICR}}" /> | <img src="https://latex.codecogs.com/gif.latex?I" title="I" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{v}_{x}" title="\dot{v}_{x}" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{\theta}" title="\dot{\theta}" /> |
