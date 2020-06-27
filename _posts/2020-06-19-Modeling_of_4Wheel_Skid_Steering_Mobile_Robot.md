@@ -33,7 +33,7 @@ i번째 바퀴의 회전 속도를 <img src="https://latex.codecogs.com/gif.late
 
 여기서는 3가지 가정을 한다.
  - 여기서는 바퀴의 두께는 무시한다.
- - 지면과 한점 $P_{i}$에서 만난다.
+ - 지면과 한점 <img src="https://latex.codecogs.com/gif.latex?P_{i}" title="P_{i}" />에서 만난다.
  - longitudinal 방향으로의 미끄러짐은 없다
 
 로봇이 정면 방향으로 움직이지 않는 이상 바퀴의 lateral 방향 속도는 0이 아니다. 바퀴는 longitudinal 방향으로는 완전히 구르고, lateral 방향으로는 미끄러지게 된다. 
