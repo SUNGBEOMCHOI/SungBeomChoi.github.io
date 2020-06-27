@@ -83,11 +83,11 @@ ICR에 대한 i 번째 바퀴의 회전 속도와 COM의 회전속도는 같으�
 
 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\eta}=\left[\begin{array}{c}&space;v_{x}&space;\\&space;\omega&space;\end{array}\right]=r\left[\begin{array}{c}&space;\frac{\omega_{L}&plus;\omega_{R}}{2}&space;\\&space;\frac{-\omega_{L}&plus;\omega_{R}}{2&space;c}&space;\end{array}\right]" title="\boldsymbol{\eta}=\left[\begin{array}{c} v_{x} \\ \omega \end{array}\right]=r\left[\begin{array}{c} \frac{\omega_{L}+\omega_{R}}{2} \\ \frac{-\omega_{L}+\omega_{R}}{2 c} \end{array}\right]" />
 
-(Caracciolo L., De Luca A. and Iannitti S. (1999): Trajectory tracking control of a four-wheel differentially driven mobile robot) 논문에 따르면 다음과 같은 제약이 들어간다. (왜 이런 제약이 필요한지는 이해가 되지는 않지만 위의 <img src="https://latex.codecogs.com/gif.latex?\frac{v_{y}}{d_{C&space;x}}=\omega" title="\frac{v_{y}}{d_{C x}}=\omega" /> 식을 통해 유도는 할 수 있다. )
+(Caracciolo L., De Luca A. and Iannitti S. (1999): Trajectory tracking control of a four-wheel differentially driven mobile robot) 논문에 따르면 SSMR 로봇에서는 다음과 같은 제약이 들어간다. (왜 이런 제약이 필요한지는 이해가 되지는 않음 )
 
 <img src="https://latex.codecogs.com/gif.latex?v_{y}&plus;x_{\mathrm{ICR}}&space;\dot{\theta}=0" title="v_{y}+x_{\mathrm{ICR}} \dot{\theta}=0" />
 
-로봇 좌표계와 world 좌표계의 변환을 통해 <img src="https://latex.codecogs.com/gif.latex?v_{y}=-\sin&space;\theta&space;\cdot&space;\dot{X}&plus;\cos&space;\theta&space;\cdot&space;\dot{Y}" title="v_{y}=-\sin \theta \cdot \dot{X}+\cos \theta \cdot \dot{Y}" />를 얻을 수 있고, 위의 식과의 결합을 통해 다음과 같이 표현할 수 있다.
+로봇 좌표계와 world 좌표계의 변환을 통해 <img src="https://latex.codecogs.com/gif.latex?v_{y}=-\sin&space;\theta&space;\cdot&space;\dot{X}&plus;\cos&space;\theta&space;\cdot&space;\dot{Y}" title="v_{y}=-\sin \theta \cdot \dot{X}+\cos \theta \cdot \dot{Y}" />를 얻을 수 있고, 위의 식과의 결합을 통해 제약을 다시 다음과 같이 표현할 수 있다.
 
 <img src="https://latex.codecogs.com/gif.latex?\left[-\sin&space;\theta&space;\quad&space;\cos&space;\theta&space;\quad&space;x_{\mathrm{ICR}}\right][\dot{X}&space;\quad&space;\dot{Y}&space;\quad&space;\dot{\theta}]^{T}=A(\boldsymbol{q})&space;\dot{\boldsymbol{q}}=\mathbf{0}" title="\left[-\sin \theta \quad \cos \theta \quad x_{\mathrm{ICR}}\right][\dot{X} \quad \dot{Y} \quad \dot{\theta}]^{T}=A(\boldsymbol{q}) \dot{\boldsymbol{q}}=\mathbf{0}" />
 
@@ -105,3 +105,101 @@ and
 
 주목해야할점은 로봇의 운동은 2차원(<img src="https://latex.codecogs.com/gif.latex?v_{x}$,&space;$\omega" title="v_{x}$, $\omega" />) 으로 표현되고, world 좌표계에서의 움직임은 3차원(<img src="https://latex.codecogs.com/gif.latex?\dot{X}&space;\quad&space;\dot{Y}&space;\quad&space;\dot{\theta}" title="\dot{X} \quad \dot{Y} \quad \dot{\theta}" />)으로 표현된다는 것이다. 또 흥미로운점은 SSMR에 대해 물리적으로 기술한 식들이 two-wheel mobile robot과 상당히 유사하다는 점이다.
 
+### 바퀴에서의 마찰력을 고려한 modeling
+![wheel dynamic model](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-19-Modeling_of_4Wheel_Skid_Steering_Mobile_Robot/capture5.jpg?raw=true)
+바퀴에서의 마찰력이 있는 경우를 고려해보자. 마찰력은 longitudinal 방향에서의 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{F}_{s&space;i}" title="\boldsymbol{F}_{s i}" /> 그리고 lateral 방향에서의 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{F}_{l&space;i}" title="\boldsymbol{F}_{l i}" />가 있다. 그리고 바퀴에서 앞으로 가려는 힘은 토크와 바퀴의 반지름으로 <img src="https://latex.codecogs.com/gif.latex?F_{i}=\frac{\tau_{i}}{r}" title="F_{i}=\frac{\tau_{i}}{r}" /> 처럼 표현할 수 있다. 
+
+![robot](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-19-Modeling_of_4Wheel_Skid_Steering_Mobile_Robot/capture6.jpg?raw=true)
+
+각 바퀴에 가해지는 수직항력은 COM과 바퀴사이의 거리 a, b를 통해 다음과 같이 나타낼 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?\begin{aligned}&space;N_{1}&space;a&space;&=N_{2}&space;b&space;\\&space;N_{4}&space;a&space;&=N_{3}&space;b&space;\\&space;\sum_{i=1}^{4}&space;N_{i}&space;&=m&space;g&space;\end{aligned}" title="\begin{aligned} N_{1} a &=N_{2} b \\ N_{4} a &=N_{3} b \\ \sum_{i=1}^{4} N_{i} &=m g \end{aligned}" />
+
+(1, 4) 바퀴와 COM사이 거리가 같고, (2, 3) 바퀴와 COM사이 거리가 같다. 
+<img src="https://latex.codecogs.com/gif.latex?\begin{array}{l}&space;N_{1}=N_{4}=\frac{b}{2(a&plus;b)}&space;m&space;g&space;\\&space;N_{2}=N_{3}=\frac{a}{2(a&plus;b)}&space;m&space;g&space;\end{array}" title="\begin{array}{l} N_{1}=N_{4}=\frac{b}{2(a+b)} m g \\ N_{2}=N_{3}=\frac{a}{2(a+b)} m g \end{array}" />
+
+마찰력을 modeling하는 것은 상당히 복잡하다. 여기서는 간단하게 Coulumb 마찰과 Viscous 마찰로만 표현을 한다.
+<img src="https://latex.codecogs.com/gif.latex?F_{f}(\sigma)=\mu_{c}&space;N&space;\operatorname{sgn}(\sigma)&plus;\mu_{v}&space;\sigma" title="F_{f}(\sigma)=\mu_{c} N \operatorname{sgn}(\sigma)+\mu_{v} \sigma" />
+여기서 <img src="https://latex.codecogs.com/gif.latex?\sigma" title="\sigma" />는 linear 속도, N은 수직항력, <img src="https://latex.codecogs.com/gif.latex?\mu_{c}" title="\mu_{c}" />은 coulomb 마찰계수, <img src="https://latex.codecogs.com/gif.latex?\mu_{v}" title="\mu_{v}" />은 viscous 마찰계수이다. lateral 방향에서 미끄러짐이 일어날 때 <img src="https://latex.codecogs.com/gif.latex?\sigma" title="\sigma" />는 매우 작다. 따라서 <img src="https://latex.codecogs.com/gif.latex?\mu_{c}&space;N&space;\gg\left|\mu_{v}&space;\sigma\right|" title="\mu_{c} N \gg\left|\mu_{v} \sigma\right|" /> 근사가 가능하다. 따라서 viscous 마찰은 무시가 가능하다. 
+
+<img src="https://latex.codecogs.com/gif.latex?\operatorname{sgn}(\sigma)" title="\operatorname{sgn}(\sigma)" />항 때문에 <img src="https://latex.codecogs.com/gif.latex?\sigma" title="\sigma" />가 0일 때는 마찰력이 smooth하지 않다.(미분불가능하기 때문) 따라서 아래와 같은 근사식을 이용한다.
+ <img src="https://latex.codecogs.com/gif.latex?\widehat{\operatorname{sgn}}(\sigma)=\frac{2}{\pi}&space;\arctan&space;\left(k_{s}&space;\sigma\right)" title="\widehat{\operatorname{sgn}}(\sigma)=\frac{2}{\pi} \arctan \left(k_{s} \sigma\right)" />
+
+<img src="https://latex.codecogs.com/gif.latex?k_{s}&space;\gg&space;1" title="k_{s} \gg 1" />에서는 다음과 같은 근사가 가능하다. 
+<img src="https://latex.codecogs.com/gif.latex?\lim&space;_{k_{s}&space;\rightarrow&space;\infty}&space;\frac{2}{\pi}&space;\arctan&space;\left(k_{s}&space;\sigma\right)=\operatorname{sgn}(x)" title="\lim _{k_{s} \rightarrow \infty} \frac{2}{\pi} \arctan \left(k_{s} \sigma\right)=\operatorname{sgn}(x)" />
+
+lateral 방향, longitudinal 방향의 마찰력을 다음과 같이 나타낼 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?\begin{array}{l}&space;F_{l&space;i}=\mu_{l&space;c&space;i}&space;m&space;g&space;\widehat{\operatorname{sgn}}\left(v_{y&space;i}\right)&space;\\&space;F_{s&space;i}=\mu_{s&space;c&space;i}&space;m&space;g&space;\widehat{\operatorname{sgn}}\left(v_{x&space;i}\right)&space;\end{array}" title="\begin{array}{l} F_{l i}=\mu_{l c i} m g \widehat{\operatorname{sgn}}\left(v_{y i}\right) \\ F_{s i}=\mu_{s c i} m g \widehat{\operatorname{sgn}}\left(v_{x i}\right) \end{array}" />
+
+### 에너지 보존을 이용한 운동 modeling
+로봇의 potential 에너지는 0으로 가정한다. ( <img src="https://latex.codecogs.com/gif.latex?P&space;E(\boldsymbol{q})=0" title="P E(\boldsymbol{q})=0" /> ) 그러면 Lagrange-Euler 식([Lagrange-Euler 참고](https://blog.naver.com/at3650/220597986325)), 그리고 제약조건을 붙이기 위해 Lagrange multiplier을 이용한다. ([Lagrange multiplier 참고](https://blog.naver.com/gobyoungmin/221310459939))Lagrangian L은 다음과 같이 나타낼 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?L(\boldsymbol{q},&space;\dot{\boldsymbol{q}})=T(\boldsymbol{q},&space;\dot{\boldsymbol{q}})" title="L(\boldsymbol{q}, \dot{\boldsymbol{q}})=T(\boldsymbol{q}, \dot{\boldsymbol{q}})" />
+
+바퀴의 회전 에너지를 무시한다고 가정하고, 로봇의 운동에너지는 로봇 좌표계에서 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?T=\frac{1}{2}&space;m&space;\boldsymbol{v}^{T}&space;\boldsymbol{v}&plus;\frac{1}{2}&space;I&space;\omega^{2}" title="T=\frac{1}{2} m \boldsymbol{v}^{T} \boldsymbol{v}+\frac{1}{2} I \omega^{2}" />
+<img src="https://latex.codecogs.com/gif.latex?I" title="I" />는 로봇 COM의 회전모멘트(moi)이다. 
+
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{v}^{T}&space;\boldsymbol{v}=v_{x}^{2}&plus;v_{u}^{2}=\dot{X}^{2}&plus;\dot{Y}^{2}" title="\boldsymbol{v}^{T} \boldsymbol{v}=v_{x}^{2}+v_{u}^{2}=\dot{X}^{2}+\dot{Y}^{2}" />이기 때문에 로봇의 운동에너지는 world 좌표계에서는 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?T=\frac{1}{2}&space;m\left(\dot{X}^{2}&plus;\dot{Y}^{2}\right)&plus;\frac{1}{2}&space;I&space;\dot{\theta}^{2}" title="T=\frac{1}{2} m\left(\dot{X}^{2}+\dot{Y}^{2}\right)+\frac{1}{2} I \dot{\theta}^{2}" />
+
+운동에너지의 시간에 대한 미분항은 [<img src="https://latex.codecogs.com/gif.latex?X&space;\quad&space;Y&space;\quad&space;\theta" title="X \quad Y \quad \theta" />] 각 성분에 대해 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\frac{\mathrm{d}}{\mathrm{d}&space;t}\left(\frac{\partial&space;E_{k}}{\partial&space;\dot{\boldsymbol{q}}}\right)=\left[\begin{array}{c}&space;m&space;\ddot{X}&space;\\&space;m&space;\ddot{Y}&space;\\&space;I&space;\ddot{\theta}&space;\end{array}\right]=M&space;\ddot{q}" title="\frac{\mathrm{d}}{\mathrm{d} t}\left(\frac{\partial E_{k}}{\partial \dot{\boldsymbol{q}}}\right)=\left[\begin{array}{c} m \ddot{X} \\ m \ddot{Y} \\ I \ddot{\theta} \end{array}\right]=M \ddot{q}" />
+where
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{M}=\left[\begin{array}{ccc}&space;m&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;m&space;&&space;0&space;\\&space;0&space;&&space;0&space;&&space;I&space;\end{array}\right]" title="\boldsymbol{M}=\left[\begin{array}{ccc} m & 0 & 0 \\ 0 & m & 0 \\ 0 & 0 & I \end{array}\right]" />
+
+world 좌표계에서의 X, Y 성분에 대한 마찰은 4개의 바퀴의 마찰력의 합으로 다음과 같이 쓸 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?F_{r&space;x}(\dot{\boldsymbol{q}})=\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{s&space;i}\left(v_{x&space;i}\right)-\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{l&space;i}\left(v_{y&space;i}\right)" title="F_{r x}(\dot{\boldsymbol{q}})=\cos \theta \sum_{i=1}^{4} F_{s i}\left(v_{x i}\right)-\sin \theta \sum_{i=1}^{4} F_{l i}\left(v_{y i}\right)" />
+<img src="https://latex.codecogs.com/gif.latex?F_{r&space;y}(\dot{\boldsymbol{q}})=\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{s&space;i}\left(v_{x&space;i}\right)&plus;\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{l&space;i}\left(v_{y&space;i}\right)" title="F_{r y}(\dot{\boldsymbol{q}})=\sin \theta \sum_{i=1}^{4} F_{s i}\left(v_{x i}\right)+\cos \theta \sum_{i=1}^{4} F_{l i}\left(v_{y i}\right)" />
+
+그리고 COM에 대한 회전 저항력 <img src="https://latex.codecogs.com/gif.latex?M_{r}" title="M_{r}" />은 다음과같다.
+<img src="https://latex.codecogs.com/gif.latex?\begin{aligned}&space;M_{r}(\dot{\boldsymbol{q}})=&-a&space;\sum_{i=1,4}&space;F_{l&space;i}\left(v_{y&space;i}\right)&plus;b&space;\sum_{i=2,3}&space;F_{l&space;i}\left(v_{y&space;i}\right)&space;\\&space;&&plus;c\left[-\sum_{i=1,2}&space;F_{s&space;i}\left(v_{x&space;i}\right)&plus;\sum_{i=3,4}&space;F_{s&space;i}\left(v_{x&space;i}\right)\right]&space;\end{aligned}" title="\begin{aligned} M_{r}(\dot{\boldsymbol{q}})=&-a \sum_{i=1,4} F_{l i}\left(v_{y i}\right)+b \sum_{i=2,3} F_{l i}\left(v_{y i}\right) \\ &+c\left[-\sum_{i=1,2} F_{s i}\left(v_{x i}\right)+\sum_{i=3,4} F_{s i}\left(v_{x i}\right)\right] \end{aligned}" />
+
+따라서 전체적인 resistive forces는  [<img src="https://latex.codecogs.com/gif.latex?X&space;\quad&space;Y&space;\quad&space;\theta" title="X \quad Y \quad \theta" />] 에 따라 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll}&space;F_{r&space;x}(\dot{\boldsymbol{q}})&space;&&space;F_{r&space;y}(\dot{\boldsymbol{q}})&space;&&space;M_{r}(\dot{\boldsymbol{q}})&space;\end{array}\right]^{T}" title="\boldsymbol{R}(\dot{\boldsymbol{q}})=\left[\begin{array}{lll} F_{r x}(\dot{\boldsymbol{q}}) & F_{r y}(\dot{\boldsymbol{q}}) & M_{r}(\dot{\boldsymbol{q}}) \end{array}\right]^{T}" />
+
+전체 로봇에 힘은 input으로 넣어주는 각 바퀴의 힘의 합이다. world 좌표계에서 로봇에 input으로 넣어주는 힘은 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?F_{x}=\cos&space;\theta&space;\sum_{i=1}^{4}&space;F_{i}" title="F_{x}=\cos \theta \sum_{i=1}^{4} F_{i}" />
+<img src="https://latex.codecogs.com/gif.latex?F_{y}=\sin&space;\theta&space;\sum_{i=1}^{4}&space;F_{i}" title="F_{y}=\sin \theta \sum_{i=1}^{4} F_{i}" />
+
+그리고 COM에 작용하는 input으로 들어가는 torque는 다음과 같다. 
+<img src="https://latex.codecogs.com/gif.latex?M=c\left(-F_{1}-F_{2}&plus;F_{3}&plus;F_{4}\right)" title="M=c\left(-F_{1}-F_{2}+F_{3}+F_{4}\right)" />
+
+따라서 전체 로봇에 input으로 들어가는 힘은  [<img src="https://latex.codecogs.com/gif.latex?X&space;\quad&space;Y&space;\quad&space;\theta" title="X \quad Y \quad \theta" />] 에 대해 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{F}=\left[\begin{array}{lll}&space;F_{x}&space;&&space;F_{y}&space;&&space;M&space;\end{array}\right]^{T}" title="\boldsymbol{F}=\left[\begin{array}{lll} F_{x} & F_{y} & M \end{array}\right]^{T}" />
+<img src="https://latex.codecogs.com/gif.latex?=\frac{1}{r}\left[\begin{array}{c}&space;\cos&space;\theta&space;\sum_{i=1}^{4}&space;\tau_{i}&space;\\&space;\sin&space;\theta&space;\sum_{i=1}^{4}&space;\tau_{i}&space;\\&space;c\left(-\tau_{1}-\tau_{2}&plus;\tau_{3}&plus;\tau_{4}\right)&space;\end{array}\right]" title="=\frac{1}{r}\left[\begin{array}{c} \cos \theta \sum_{i=1}^{4} \tau_{i} \\ \sin \theta \sum_{i=1}^{4} \tau_{i} \\ c\left(-\tau_{1}-\tau_{2}+\tau_{3}+\tau_{4}\right) \end{array}\right]" />
+
+바퀴의 왼쪽 바퀴 쌍의 토크, 오른쪽 바퀴 쌍의 토크는 다음 식과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{\tau}=\left[\begin{array}{c}&space;\tau_{L}&space;\\&space;\tau_{R}&space;\end{array}\right]=\left[\begin{array}{c}&space;\tau_{1}&plus;\tau_{2}&space;\\&space;\tau_{3}&plus;\tau_{4}&space;\end{array}\right]" title="\boldsymbol{\tau}=\left[\begin{array}{c} \tau_{L} \\ \tau_{R} \end{array}\right]=\left[\begin{array}{c} \tau_{1}+\tau_{2} \\ \tau_{3}+\tau_{4} \end{array}\right]" />
+
+위의 두 식을 결합하여 로봇의 총 input으로 들어가는 힘은 다음과 같이 정리할 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{F}=\boldsymbol{B}(\boldsymbol{q})&space;\boldsymbol{\tau}" title="\boldsymbol{F}=\boldsymbol{B}(\boldsymbol{q}) \boldsymbol{\tau}" />
+where
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{B}(\boldsymbol{q})=\frac{1}{r}\left[\begin{array}{cc}&space;\cos&space;\theta&space;&&space;\cos&space;\theta&space;\\&space;\sin&space;\theta&space;&&space;\sin&space;\theta&space;\\&space;-c&space;&&space;c&space;\end{array}\right]" title="\boldsymbol{B}(\boldsymbol{q})=\frac{1}{r}\left[\begin{array}{cc} \cos \theta & \cos \theta \\ \sin \theta & \sin \theta \\ -c & c \end{array}\right]" />
+
+**실제 로봇의 운동에너지 + 마찰력으로 손실되는 에너지 = input으로 들어가는 에너지**로 다음과 같이 표현할 수 있다.
+<img src="https://latex.codecogs.com/gif.latex?M(\boldsymbol{q})&space;\ddot{\boldsymbol{q}}&plus;\boldsymbol{R}(\dot{\boldsymbol{q}})=\boldsymbol{B}(\boldsymbol{q})&space;\tau" title="M(\boldsymbol{q}) \ddot{\boldsymbol{q}}+\boldsymbol{R}(\dot{\boldsymbol{q}})=\boldsymbol{B}(\boldsymbol{q}) \tau" />
+
+그리고 앞에서 기술한대로 SSMR에는 제약이 들어가 식은 다시 아래와 같이 정리된다.(Lagrange multiplier를 참고하세요)
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{M}(\boldsymbol{q})&space;\ddot{\boldsymbol{q}}&plus;\boldsymbol{R}(\dot{\boldsymbol{q}})=\boldsymbol{B}(\boldsymbol{q})&space;\boldsymbol{\tau}&plus;\boldsymbol{A}^{T}(\boldsymbol{q})&space;\boldsymbol{\lambda}" title="\boldsymbol{M}(\boldsymbol{q}) \ddot{\boldsymbol{q}}+\boldsymbol{R}(\dot{\boldsymbol{q}})=\boldsymbol{B}(\boldsymbol{q}) \boldsymbol{\tau}+\boldsymbol{A}^{T}(\boldsymbol{q}) \boldsymbol{\lambda}" />
+
+정리를 위해 위의 식에 양변에 <img src="https://latex.codecogs.com/gif.latex?\boldsymbol{S}^{T}(\boldsymbol{q})" title="\boldsymbol{S}^{T}(\boldsymbol{q})" />를 곱해주면 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\boldsymbol{S}^{T}(\boldsymbol{q})&space;\boldsymbol{M}(\boldsymbol{q})&space;\ddot{\boldsymbol{q}}&plus;\boldsymbol{S}^{T}(\boldsymbol{q})&space;\mathbf{R}(\dot{\mathbf{q}})" title="\boldsymbol{S}^{T}(\boldsymbol{q}) \boldsymbol{M}(\boldsymbol{q}) \ddot{\boldsymbol{q}}+\boldsymbol{S}^{T}(\boldsymbol{q}) \mathbf{R}(\dot{\mathbf{q}})" />
+<img src="https://latex.codecogs.com/gif.latex?=\boldsymbol{S}(\boldsymbol{q})^{T}&space;\boldsymbol{B}(\boldsymbol{q})&space;\boldsymbol{\tau}&plus;\boldsymbol{S}^{T}(\boldsymbol{q})&space;\boldsymbol{A}^{T}(\boldsymbol{q})&space;\boldsymbol{\lambda}" title="=\boldsymbol{S}(\boldsymbol{q})^{T} \boldsymbol{B}(\boldsymbol{q}) \boldsymbol{\tau}+\boldsymbol{S}^{T}(\boldsymbol{q}) \boldsymbol{A}^{T}(\boldsymbol{q}) \boldsymbol{\lambda}" />
+
+또한 위에서 구한 <img src="https://latex.codecogs.com/gif.latex?\dot{\boldsymbol{q}}=\boldsymbol{S}(\boldsymbol{q})&space;\boldsymbol{\eta}" title="\dot{\boldsymbol{q}}=\boldsymbol{S}(\boldsymbol{q}) \boldsymbol{\eta}" />식을 미분하면 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\ddot{\boldsymbol{q}}=\dot{\boldsymbol{S}}(\boldsymbol{q})&space;\boldsymbol{\eta}&plus;\boldsymbol{S}(\boldsymbol{q})&space;\dot{\boldsymbol{\eta}}" title="\ddot{\boldsymbol{q}}=\dot{\boldsymbol{S}}(\boldsymbol{q}) \boldsymbol{\eta}+\boldsymbol{S}(\boldsymbol{q}) \dot{\boldsymbol{\eta}}" />
+
+위의 식을 통해 전체적으로 정리하면 다음과 같다.
+<img src="https://latex.codecogs.com/gif.latex?\bar{M}&space;\dot{\eta}&plus;\bar{C}&space;\eta&plus;\bar{R}=\bar{B}&space;\tau" title="\bar{M} \dot{\eta}+\bar{C} \eta+\bar{R}=\bar{B} \tau" />
+where
+<img src="https://latex.codecogs.com/gif.latex?\overline{\boldsymbol{C}}=\boldsymbol{S}^{T}&space;\boldsymbol{M}&space;\dot{\boldsymbol{S}}=m&space;x_{\mathrm{ICR}}\left[\begin{array}{cc}&space;0&space;&&space;\dot{\theta}&space;\\&space;-\dot{\theta}&space;&&space;\dot{x}_{\mathrm{ICR}}&space;\end{array}\right]" title="\overline{\boldsymbol{C}}=\boldsymbol{S}^{T} \boldsymbol{M} \dot{\boldsymbol{S}}=m x_{\mathrm{ICR}}\left[\begin{array}{cc} 0 & \dot{\theta} \\ -\dot{\theta} & \dot{x}_{\mathrm{ICR}} \end{array}\right]" />
+<img src="https://latex.codecogs.com/gif.latex?\overline{\boldsymbol{M}}=\boldsymbol{S}^{T}&space;\boldsymbol{M}&space;\boldsymbol{S}=\left[\begin{array}{cc}&space;m&space;&&space;0&space;\\&space;0&space;&&space;m&space;x_{\mathrm{ICR}}^{2}&plus;I&space;\end{array}\right]" title="\overline{\boldsymbol{M}}=\boldsymbol{S}^{T} \boldsymbol{M} \boldsymbol{S}=\left[\begin{array}{cc} m & 0 \\ 0 & m x_{\mathrm{ICR}}^{2}+I \end{array}\right]" />
+<img src="https://latex.codecogs.com/gif.latex?\overline{\boldsymbol{R}}=\boldsymbol{S}^{T}&space;\boldsymbol{R}=\left[\begin{array}{c}&space;F_{r&space;x}(\dot{\boldsymbol{q}})&space;\\&space;x_{\mathrm{ICR}}&space;F_{r&space;y}(\dot{\boldsymbol{q}})&plus;M_{r}&space;\end{array}\right]" title="\overline{\boldsymbol{R}}=\boldsymbol{S}^{T} \boldsymbol{R}=\left[\begin{array}{c} F_{r x}(\dot{\boldsymbol{q}}) \\ x_{\mathrm{ICR}} F_{r y}(\dot{\boldsymbol{q}})+M_{r} \end{array}\right]" />
+<img src="https://latex.codecogs.com/gif.latex?\overline{\boldsymbol{B}}=\boldsymbol{S}^{T}&space;\boldsymbol{B}=\frac{1}{r}\left[\begin{array}{cc}&space;1&space;&&space;1&space;\\&space;-c&space;&&space;c&space;\end{array}\right]" title="\overline{\boldsymbol{B}}=\boldsymbol{S}^{T} \boldsymbol{B}=\frac{1}{r}\left[\begin{array}{cc} 1 & 1 \\ -c & c \end{array}\right]" />
+
+이 input으로 넣어주어야하는 torque를 구하기 위한 식을 풀기 위해서 알아야하는 변수들은 아래 표로 정리해두었다.
+|  |  |  |  |  |
+|--|--|--|--|--|
+| <img src="https://latex.codecogs.com/gif.latex?m" title="m" /> | <img src="https://latex.codecogs.com/gif.latex?x_{\mathrm{ICR}}" title="x_{\mathrm{ICR}}" /> | <img src="https://latex.codecogs.com/gif.latex?I" title="I" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{v}_{x}" title="\dot{v}_{x}" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{\theta}" title="\dot{\theta}" /> |
+| <img src="https://latex.codecogs.com/gif.latex?\dot{x}_{\mathrm{ICR}}" title="\dot{x}_{\mathrm{ICR}}" /> | <img src="https://latex.codecogs.com/gif.latex?w_{L}" title="w_{L}" /> | <img src="https://latex.codecogs.com/gif.latex?w_{R}" title="w_{R}" /> | <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" /> | <img src="https://latex.codecogs.com/gif.latex?\mu_{l&space;c&space;i}" title="\mu_{l c i}" /> |
+| <img src="https://latex.codecogs.com/gif.latex?\mu_{s&space;c&space;i}" title="\mu_{s c i}" /> | <img src="https://latex.codecogs.com/gif.latex?k_{s}" title="k_{s}" />|<img src="https://latex.codecogs.com/gif.latex?v_{x&space;i}" title="v_{x i}" />  |<img src="https://latex.codecogs.com/gif.latex?v_{y&space;i}" title="v_{y i}" />  | <img src="https://latex.codecogs.com/gif.latex?a" title="a" /> |
+| <img src="https://latex.codecogs.com/gif.latex?b" title="b" /> | <img src="https://latex.codecogs.com/gif.latex?c" title="c" /> |  |  | 
