@@ -237,7 +237,7 @@ where
 
 **각 바퀴에 input으로 넣어주어야하는 torque를 구하기 위한 식을 풀기 위해서 알아야하는 변수들은 아래 표로 정리해두었다.**
 |    |    |    |    |    |
-|:--:|:--:|:--:|:--:|:--:|
+|:---------:|:---------:|:---------:|:---------:|:---------:|
 | <img src="https://latex.codecogs.com/gif.latex?m" title="m" /> | <img src="https://latex.codecogs.com/gif.latex?x_{\mathrm{ICR}}" title="x_{\mathrm{ICR}}" /> | <img src="https://latex.codecogs.com/gif.latex?I" title="I" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{v}_{x}" title="\dot{v}_{x}" /> | <img src="https://latex.codecogs.com/gif.latex?\dot{\theta}" title="\dot{\theta}" /> |
 | <img src="https://latex.codecogs.com/gif.latex?\dot{x}_{\mathrm{ICR}}" title="\dot{x}_{\mathrm{ICR}}" /> | <img src="https://latex.codecogs.com/gif.latex?w_{L}" title="w_{L}" /> | <img src="https://latex.codecogs.com/gif.latex?w_{R}" title="w_{R}" /> | <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" /> | <img src="https://latex.codecogs.com/gif.latex?\mu_{l&space;c&space;i}" title="\mu_{l c i}" /> |
 | <img src="https://latex.codecogs.com/gif.latex?\mu_{s&space;c&space;i}" title="\mu_{s c i}" /> | <img src="https://latex.codecogs.com/gif.latex?k_{s}" title="k_{s}" />|<img src="https://latex.codecogs.com/gif.latex?v_{x&space;i}" title="v_{x i}" />  |<img src="https://latex.codecogs.com/gif.latex?v_{y&space;i}" title="v_{y i}" />  | <img src="https://latex.codecogs.com/gif.latex?a" title="a" /> |
