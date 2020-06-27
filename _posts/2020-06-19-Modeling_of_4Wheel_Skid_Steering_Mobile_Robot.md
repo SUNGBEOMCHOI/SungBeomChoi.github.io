@@ -44,28 +44,35 @@ longitudinal 방향으로의 속도는 다음과 같이 바퀴의 반지름과 �
 ### 4바퀴의 운동이 합쳐져 만들어지는 로봇의 움직임
 ![robot and wheel](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-19-Modeling_of_4Wheel_Skid_Steering_Mobile_Robot/capture4.jpg?raw=true)
 
-로봇의 회전의 중심(ICR)으로부터 각 i 바퀴와 로봇의 무게중심 COM으로 가는 거리벡터를 다음과 같이 쓸 수 있다.
+로봇 회전의 중심(ICR)으로부터 각 i 바퀴와 로봇의 무게중심 COM으로 가는 거리벡터를 다음과 같이 쓸 수 있다.
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{d}_{i}=\left[\begin{array}{ll}&space;d_{i&space;x}&space;&&space;d_{i&space;y}&space;\end{array}\right]^{T}&space;\text&space;{&space;and&space;}&space;\boldsymbol{d}_{C}=\left[\begin{array}{ll}&space;d_{C&space;x}&space;&&space;d_{C&space;y}&space;\end{array}\right]^{T}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{d}_{i}=\left[\begin{array}{ll}&space;d_{i&space;x}&space;&&space;d_{i&space;y}&space;\end{array}\right]^{T}&space;\text&space;{&space;and&space;}&space;\boldsymbol{d}_{C}=\left[\begin{array}{ll}&space;d_{C&space;x}&space;&&space;d_{C&space;y}&space;\end{array}\right]^{T}" title="\boldsymbol{d}_{i}=\left[\begin{array}{ll} d_{i x} & d_{i y} \end{array}\right]^{T} \text { and } \boldsymbol{d}_{C}=\left[\begin{array}{ll} d_{C x} & d_{C y} \end{array}\right]^{T}" /></a>
 
 ICR에 대한 i 번째 바퀴의 회전 속도와 COM의 회전속도는 같으므로 다음과 같이 쓸 수 있다. (스칼라 개념)
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\left\|\boldsymbol{v}_{i}\right\|}{\left\|\boldsymbol{d}_{i}\right\|}=\frac{\|\boldsymbol{v}\|}{\left\|\boldsymbol{d}_{C}\right\|}=|\omega|" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{\left\|\boldsymbol{v}_{i}\right\|}{\left\|\boldsymbol{d}_{i}\right\|}=\frac{\|\boldsymbol{v}\|}{\left\|\boldsymbol{d}_{C}\right\|}=|\omega|" title="\frac{\left\|\boldsymbol{v}_{i}\right\|}{\left\|\boldsymbol{d}_{i}\right\|}=\frac{\|\boldsymbol{v}\|}{\left\|\boldsymbol{d}_{C}\right\|}=|\omega|" /></a>
 
 더 자세한 형태는 벡터로 다음과 같이 나타낼 수 있다.
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{v_{i&space;x}}{-d_{i&space;y}}=\frac{v_{x}}{-d_{C&space;y}}=\frac{v_{i&space;y}}{d_{i&space;x}}=\frac{v_{y}}{d_{C&space;x}}=\omega" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{v_{i&space;x}}{-d_{i&space;y}}=\frac{v_{x}}{-d_{C&space;y}}=\frac{v_{i&space;y}}{d_{i&space;x}}=\frac{v_{y}}{d_{C&space;x}}=\omega" title="\frac{v_{i x}}{-d_{i y}}=\frac{v_{x}}{-d_{C y}}=\frac{v_{i y}}{d_{i x}}=\frac{v_{y}}{d_{C x}}=\omega" /></a>
 
 위와는 반대로 로봇의 무게중심(로봇 좌표계)을 기준으로 ICR을 나타내면 다음과 같다.
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\mathrm{ICR}=\left(x_{\mathrm{ICR}},&space;y_{\mathrm{ICR}}\right)=\left(-d_{C&space;x},-d_{C&space;y}\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathrm{ICR}=\left(x_{\mathrm{ICR}},&space;y_{\mathrm{ICR}}\right)=\left(-d_{C&space;x},-d_{C&space;y}\right)" title="\mathrm{ICR}=\left(x_{\mathrm{ICR}}, y_{\mathrm{ICR}}\right)=\left(-d_{C x},-d_{C y}\right)" /></a>
 
 위의 두 식을 이용해서 다음과 같이 나타낼 수 있다. 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{v_{x}}{y_{\mathrm{ICR}}}=-\frac{v_{y}}{x_{\mathrm{ICR}}}=\omega" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{v_{x}}{y_{\mathrm{ICR}}}=-\frac{v_{y}}{x_{\mathrm{ICR}}}=\omega" title="\frac{v_{x}}{y_{\mathrm{ICR}}}=-\frac{v_{y}}{x_{\mathrm{ICR}}}=\omega" /></a>
 
 회전중심을 기준으로하는 바퀴거리벡터와 무게중심거리벡터는 a, b, c를 이용해 다음과 같이 나타낼 수 있다. (a, b, c는 로봇 좌표계를 기준으로 +의 방향의 벡터이다.)
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\begin{array}{l}&space;d_{1&space;y}=d_{2&space;y}=d_{C&space;y}&plus;c&space;\\&space;d_{3&space;y}=d_{4&space;y}=d_{C&space;y}-c&space;\\&space;d_{1&space;x}=d_{4&space;x}=d_{C&space;x}-c&space;\\&space;d_{2&space;x}=d_{3&space;x}=d_{C&space;x}&plus;b&space;\end{array}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{array}{l}&space;d_{1&space;y}=d_{2&space;y}=d_{C&space;y}&plus;c&space;\\&space;d_{3&space;y}=d_{4&space;y}=d_{C&space;y}-c&space;\\&space;d_{1&space;x}=d_{4&space;x}=d_{C&space;x}-c&space;\\&space;d_{2&space;x}=d_{3&space;x}=d_{C&space;x}&plus;b&space;\end{array}" title="\begin{array}{l} d_{1 y}=d_{2 y}=d_{C y}+c \\ d_{3 y}=d_{4 y}=d_{C y}-c \\ d_{1 x}=d_{4 x}=d_{C x}-c \\ d_{2 x}=d_{3 x}=d_{C x}+b \end{array}" /></a>
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{v_{i&space;x}}{-d_{i&space;y}}=\frac{v_{x}}{-d_{C&space;y}}=\frac{v_{i&space;y}}{d_{i&space;x}}=\frac{v_{y}}{d_{C&space;x}}=\omega" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{v_{i&space;x}}{-d_{i&space;y}}=\frac{v_{x}}{-d_{C&space;y}}=\frac{v_{i&space;y}}{d_{i&space;x}}=\frac{v_{y}}{d_{C&space;x}}=\omega" title="\frac{v_{i x}}{-d_{i y}}=\frac{v_{x}}{-d_{C y}}=\frac{v_{i y}}{d_{i x}}=\frac{v_{y}}{d_{C x}}=\omega" /></a>식과 위의 식을 결합하면 다음과 같은 식을 얻을 수 있다. (로봇 좌표계에서 x방향의 거리벡터는 (1, 2), (3, 4)바퀴가 같고, y방향의 거리벡터는 (1, 4), (2, 3)바퀴가 같기 때문이다.)
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\begin{array}{l}&space;v_{L}=v_{1&space;x}=v_{2&space;x}&space;\\&space;v_{R}=v_{3&space;x}=v_{4&space;x}&space;\\&space;v_{F}=v_{2&space;y}=v_{3&space;y}&space;\\&space;v_{B}=v_{1&space;y}=v_{4&space;y_{y}}&space;\end{array}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{array}{l}&space;v_{L}=v_{1&space;x}=v_{2&space;x}&space;\\&space;v_{R}=v_{3&space;x}=v_{4&space;x}&space;\\&space;v_{F}=v_{2&space;y}=v_{3&space;y}&space;\\&space;v_{B}=v_{1&space;y}=v_{4&space;y_{y}}&space;\end{array}" title="\begin{array}{l} v_{L}=v_{1 x}=v_{2 x} \\ v_{R}=v_{3 x}=v_{4 x} \\ v_{F}=v_{2 y}=v_{3 y} \\ v_{B}=v_{1 y}=v_{4 y_{y}} \end{array}" /></a>
 
 위의 식을 모두 종합하면 바퀴의 속도는 로봇의 속도의 관계는 다음 식으로 정리된다.
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\left[\begin{array}{c}&space;v_{L}&space;\\&space;v_{R}&space;\\&space;v_{F}&space;\\&space;v_{B}&space;\end{array}\right]=\left[\begin{array}{cc}&space;1&space;&&space;-c&space;\\&space;1&space;&&space;c&space;\\&space;0&space;&&space;-x_{\mathrm{ICR}}&plus;b&space;\\&space;0&space;&&space;-x_{\mathrm{ICR}}-a&space;\end{array}\right]\left[\begin{array}{c}&space;v_{x}&space;\\&space;\omega&space;\end{array}\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left[\begin{array}{c}&space;v_{L}&space;\\&space;v_{R}&space;\\&space;v_{F}&space;\\&space;v_{B}&space;\end{array}\right]=\left[\begin{array}{cc}&space;1&space;&&space;-c&space;\\&space;1&space;&&space;c&space;\\&space;0&space;&&space;-x_{\mathrm{ICR}}&plus;b&space;\\&space;0&space;&&space;-x_{\mathrm{ICR}}-a&space;\end{array}\right]\left[\begin{array}{c}&space;v_{x}&space;\\&space;\omega&space;\end{array}\right]" title="\left[\begin{array}{c} v_{L} \\ v_{R} \\ v_{F} \\ v_{B} \end{array}\right]=\left[\begin{array}{cc} 1 & -c \\ 1 & c \\ 0 & -x_{\mathrm{ICR}}+b \\ 0 & -x_{\mathrm{ICR}}-a \end{array}\right]\left[\begin{array}{c} v_{x} \\ \omega \end{array}\right]" /></a>
 
 그리고 <a href="https://www.codecogs.com/eqnedit.php?latex=\begin{array}{l}&space;v_{L}=v_{1&space;x}=v_{2&space;x}&space;\\&space;v_{R}=v_{3&space;x}=v_{4&space;x}&space;\end{array}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{array}{l}&space;v_{L}=v_{1&space;x}=v_{2&space;x}&space;\\&space;v_{R}=v_{3&space;x}=v_{4&space;x}&space;\end{array}" title="\begin{array}{l} v_{L}=v_{1 x}=v_{2 x} \\ v_{R}=v_{3 x}=v_{4 x} \end{array}" /></a> 이므로 모든 바퀴의 반지름이 같다는 가정하에 왼쪽바퀴와 오른쪽바퀴의 각속도를 묶어서 전체 바퀴의 각속도를 다음과 같이 쓸 수 있다.
@@ -87,9 +94,13 @@ ICR에 대한 i 번째 바퀴의 회전 속도와 COM의 회전속도는 같으�
 그리고 world 좌표계에서의 속도를 각 바퀴와 COM의 운동에 대해 변환하면 다음과 같이 나타낼 수 있다.
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\dot{\boldsymbol{q}}=\boldsymbol{S}(\boldsymbol{q})&space;\boldsymbol{\eta}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{\boldsymbol{q}}=\boldsymbol{S}(\boldsymbol{q})&space;\boldsymbol{\eta}" title="\dot{\boldsymbol{q}}=\boldsymbol{S}(\boldsymbol{q}) \boldsymbol{\eta}" /></a>
+
 where 
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{S}^{T}(\boldsymbol{q})&space;\boldsymbol{A}^{T}(\boldsymbol{q})=\mathbf{0}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{S}^{T}(\boldsymbol{q})&space;\boldsymbol{A}^{T}(\boldsymbol{q})=\mathbf{0}" title="\boldsymbol{S}^{T}(\boldsymbol{q}) \boldsymbol{A}^{T}(\boldsymbol{q})=\mathbf{0}" /></a>
+
 and
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=\boldsymbol{S}(\boldsymbol{q})=\left[\begin{array}{cc}&space;\cos&space;\theta&space;&&space;x_{\mathrm{ICR}}&space;\sin&space;\theta&space;\\&space;\sin&space;\theta&space;&&space;-x_{\mathrm{ICR}}&space;\cos&space;\theta&space;\\&space;0&space;&&space;1&space;\end{array}\right]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\boldsymbol{S}(\boldsymbol{q})=\left[\begin{array}{cc}&space;\cos&space;\theta&space;&&space;x_{\mathrm{ICR}}&space;\sin&space;\theta&space;\\&space;\sin&space;\theta&space;&&space;-x_{\mathrm{ICR}}&space;\cos&space;\theta&space;\\&space;0&space;&&space;1&space;\end{array}\right]" title="\boldsymbol{S}(\boldsymbol{q})=\left[\begin{array}{cc} \cos \theta & x_{\mathrm{ICR}} \sin \theta \\ \sin \theta & -x_{\mathrm{ICR}} \cos \theta \\ 0 & 1 \end{array}\right]" /></a>
 
 주목해야할점은 로봇의 운동은 2차원(<a href="https://www.codecogs.com/eqnedit.php?latex=v_{x}$,&space;$\omega" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v_{x}$,&space;$\omega" title="v_{x}$, $\omega" /></a>) 으로 표현되고, world 좌표계에서의 움직임은 3차원(<a href="https://www.codecogs.com/eqnedit.php?latex=\dot{X}&space;\quad&space;\dot{Y}&space;\quad&space;\dot{\theta}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dot{X}&space;\quad&space;\dot{Y}&space;\quad&space;\dot{\theta}" title="\dot{X} \quad \dot{Y} \quad \dot{\theta}" /></a>)으로 표현된다는 것이다. 또 흥미로운점은 SSMR에 대해 물리적으로 기술한 식들이 two-wheel mobile robot과 상당히 유사하다는 점이다.
