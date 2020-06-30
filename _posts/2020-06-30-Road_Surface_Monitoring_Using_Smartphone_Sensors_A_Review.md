@@ -30,7 +30,7 @@ vibration-based 방법은 움직이는 vehicle에 장착된 motion 센서(accele
    * 센서의 noise 처리
    * 센서의 좌표계를 geographic 좌표계로 변환
 3. Processing for Feature Extraction   
-데이터를 통해 통하는 정보를 추출
+데이터를 통해 하는 정보를 추출
 4. Post-Processing   
 처리된 센서 데이터를 서버에 전송하고, 여러 sources를 통해 얻은 정보를 integration
 5. Performanc Evaluation   
