@@ -58,18 +58,18 @@ Data sampling rate는 특이점을검출하는 과정에서 중요한 역할을 
 
    전처리의 두 번째  목적은 센서 데이터의 좌표계를 geographic 좌표계로 변환하는 것이다.
 
-   Sebestyen[[33](https://ieeexplore.ieee.org/document/7145123)] 그리고 Seraj[[34](https://ris.utwente.nl/ws/portalfiles/portal/5493041/Seraj_et_al._-_RoADS.pdf)]는 2가지 다른 filter를 사용했다. 하나는 noise를 지우기 위한 filter, 하나는 도로의 특이점에 의해 발생하는 acceleration의 variation을 증폭시켜주는 filter이다. 
-   Douangphachanh and Oneyama[[22](https://www.scitepress.org/Papers/2014/51174/51174.pdf)]는 vehicle의 속도, 주행(회전)에 따라 발생하는 low-frequency 정보를 detect하기 위해 high-pass filter를 사용했다.
-   Mohamed[[30](https://www.researchgate.net/publication/266387427_RoadMonitor_An_Intelligent_Road_Surface_Condition_Monitoring_System)]는 이차 high-pass butterworth filter[[35](https://www.changpuak.ch/electronics/downloads/On_the_Theory_of_Filter_Amplifiers.pdf)]를 사용했다. 
-   Singh[[39](http://dx.doi.org/10.1016/j.pmcj.2017.06.002)]는 data를 smooth하게 하기 위해 simple moving-average와 band-passs filter를 사용했다.
-   Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Bhoraskar et al. [[27](https://ieeexplore.ieee.org/document/6151382)], Vittorio et al. [[38](http://dx.doi.org/10.1016/j.sbspro.2014.01.057)], Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Singh et al. [[39](http://dx.doi.org/10.1016/j.pmcj.2017.06.002)] 의 논문에서는 센서의 좌표를 geographic 좌표로 바꾸기 위한 방법이 제시되었다. 
-   Silva et al.[[40](http://dx.doi.org/10.1016/j.procs.2017.11.056)]에서는 null sensor data를 없애고, 일정하지 않은 timestamp data 값을 처리하는 방법이 나와있다.
+   Sebestyen[[33](https://ieeexplore.ieee.org/document/7145123)] 그리고 Seraj[[34](https://ris.utwente.nl/ws/portalfiles/portal/5493041/Seraj_et_al._-_RoADS.pdf)]는 2가지 다른 filter를 사용했다. 하나는 noise를 지우기 위한 filter, 하나는 도로의 특이점에 의해 발생하는 acceleration의 variation을 증폭시켜주는 filter이다.   
+   Douangphachanh and Oneyama[[22](https://www.scitepress.org/Papers/2014/51174/51174.pdf)]는 vehicle의 속도, 주행(회전)에 따라 발생하는 low-frequency 정보를 detect하기 위해 high-pass filter를 사용했다.   
+   Mohamed[[30](https://www.researchgate.net/publication/266387427_RoadMonitor_An_Intelligent_Road_Surface_Condition_Monitoring_System)]는 이차 high-pass butterworth filter[[35](https://www.changpuak.ch/electronics/downloads/On_the_Theory_of_Filter_Amplifiers.pdf)]를 사용했다.   
+   Singh[[39](http://dx.doi.org/10.1016/j.pmcj.2017.06.002)]는 data를 smooth하게 하기 위해 simple moving-average와 band-passs filter를 사용했다.   
+   Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Bhoraskar et al. [[27](https://ieeexplore.ieee.org/document/6151382)], Vittorio et al. [[38](http://dx.doi.org/10.1016/j.sbspro.2014.01.057)], Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Singh et al. [[39](http://dx.doi.org/10.1016/j.pmcj.2017.06.002)] 의 논문에서는 센서의 좌표를 geographic 좌표로 바꾸기 위한 방법이 제시되었다.    
+   Silva et al.[[40](http://dx.doi.org/10.1016/j.procs.2017.11.056)]에서는 null sensor data를 없애고, 일정하지 않은 timestamp data 값을 처리하는 방법이 나와있다.   
    
 3. **Processing**   
 전처리된 센서 값을 통해 도로 표면의 특이점을 검출하는 과정이다. 맨홀, road joints와 같은 사람이 만든 시설과 실제로 pothole, bump 등을 구분하는 과정도 포함된다. 
 처리되는 방식에 따라 Online과 Offline으로 나뉜다.    Offline 방식은 sensor data를 수집한 후 일괄적으로 처리하고, Online 방식은 수집, 전처리, Processing의 과정이 동시에 일어난다.
 
-Processing에는 보통 3가지 방법이 사용된다.
+   Processing에는 보통 3가지 방법이 사용된다.
    1. **Threshold-based**   
 증폭된 accelerometer signal을 정해진 threshold 이상이 되면 특이점이라고 판단한다. Thershold-based 방법도 3가지 관점에 따라 나누었다. 
       1. length of interval for a window function([window function 참고](https://en.wikipedia.org/wiki/Window_function))   
@@ -78,12 +78,14 @@ Processing에는 보통 3가지 방법이 사용된다.
          
       2. fixed vs flexible threshold determination   
       threshold 값을 결정하는 것도 여러 요인(vehicle의 suspension 시스템, sensor의 특성, 센서의 위치)에 의해 결정된다.          
-         Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Mednis et al. [[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)], Sinharay et al. [[19](https://www.researchgate.net/publication/236255718_Low_Computational_Approach_for_Road_Condition_Monitoring_Using_Smartphones)], and Yi et al. [[43](http://dx.doi.org/10.1109/TITS.2014.2378511)]에서는 경험을 통해 fixed threshold를 결정한다. 
-         Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Harikrishnan and Gopi [[36](http://dx.doi.org/10.1109/JSEN.2017.2719865)]에서는 일정하지 않은 signal pattern을 인지하기 위해 dynamic threshold를 사용한다. dynamic threshold가 여러 환경에 적용될 수 있기 때문에 더 매력적이다.
+         Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Mednis et al. [[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)], Sinharay et al. [[19](https://www.researchgate.net/publication/236255718_Low_Computational_Approach_for_Road_Condition_Monitoring_Using_Smartphones)], and Yi et al. [[43](http://dx.doi.org/10.1109/TITS.2014.2378511)]에서는 경험을 통해 fixed threshold를 결정한다.   
+         Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Harikrishnan and Gopi [[36](http://dx.doi.org/10.1109/JSEN.2017.2719865)]에서는 일정하지 않은 signal pattern을 인지하기 위해 dynamic threshold를 사용한다.   
+         dynamic threshold가 여러 환경에 적용될 수 있기 때문에 더 매력적이다.
          
       3. amplitude of signal vs other properties of signal amplitude   
-      Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Mednis et al. [[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)], Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Harikrishnan and Gopi [[36](http://dx.doi.org/10.1109/JSEN.2017.2719865)]에서는 증폭된 signal 값을 통해 threshold를 결정한다.
-      Yagi [[21](http://www.bumprecorder.com/wp-content/uploads/2013/12/225c966eb8450f15af993862b032ba6e.pdf)], Nomura and Shiraishi [[42](http://www.infsoc.org/journal/vol07/IJIS_07_1_029-036.pdf)], Vittorio et al. [[38](http://dx.doi.org/10.1016/j.sbspro.2014.01.057)], and Yi et al. [[43](http://dx.doi.org/10.1109/TITS.2014.2378511)]에서는 통계적인 값(표준편차 등)으로 threshold를 결정한다. Mednis et al.[[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)]은 accelerometer 데이터로 부터 도로 표면의 특이점을 검출할 때 표준편차가 가장 중요한 파라미터라고 규정했다.
+      Mohan et al. [[37](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Nericell-Sensys2008.pdf)], Mednis et al. [[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)], Sebestyen et al. [[33](https://ieeexplore.ieee.org/document/7145123)], Wang et al. [[9](http://dx.doi.org/10.1155/2015/869627)], and Harikrishnan and Gopi [[36](http://dx.doi.org/10.1109/JSEN.2017.2719865)]에서는 증폭된 signal 값을 통해 threshold를 결정한다.   
+      Yagi [[21](http://www.bumprecorder.com/wp-content/uploads/2013/12/225c966eb8450f15af993862b032ba6e.pdf)], Nomura and Shiraishi [[42](http://www.infsoc.org/journal/vol07/IJIS_07_1_029-036.pdf)], Vittorio et al. [[38](http://dx.doi.org/10.1016/j.sbspro.2014.01.057)], and Yi et al. [[43](http://dx.doi.org/10.1109/TITS.2014.2378511)]에서는 통계적인 값(표준편차 등)으로 threshold를 결정한다.   
+      Mednis et al.[[41](https://www.researchgate.net/publication/224253154_Real_Time_Pothole_Detection_Using_Android_Smartphones_with_Accelerometers)]은 accelerometer 데이터로 부터 도로 표면의 특이점을 검출할 때 표준편차가 가장 중요한 파라미터라고 규정했다.
 
    2. **Machine Learning**   
    도로 표면 특이점 검출을 위해 unsupervised 또는 supervised를 사용한다.
@@ -97,20 +99,18 @@ Processing에는 보통 3가지 방법이 사용된다.
    speech recognition의 방법에서 영감을 얻은 방법이다. 시계열 분석인데, 들어오는 signal data를 미리 정해진 templates과 비교하여, 유사도를 통해 분석한다.   
    Singh et al.[[39](http://dx.doi.org/10.1016/j.pmcj.2017.06.002)]에서는 DTW 방법으로 accelerometer data를 활용해 도로 표면의 특이점을 검출하였다. pothole(움푹패임)과 bump(울퉁불퉁함)에서 accelerometer data를 시계열로 수집하고, 이것을 server에 template으로 저장한다. 이후 새로 들어온 데이터와 비교하여 유사도를 검사하고, 이를 통해 특이점을 검출한다. 이 방법의 성능은 reference template의 quality에 연관되었다. 이 방법은 computationall intensive and unreliable하다. 또한 다른 환경(vehicle의 종류, 도로의 상태, vehicle의 speed)마다 templates이 필요하다는 단점이 있다.    
 
-   **도로 표면 특이점의 분류**
+   **도로 표면 특이점의 분류**   
    도로의 특이점은 2가지로 나눌 수 있다.   
       1. 실제로 표면이 움푹패인 곳이나 bump(울퉁불퉁함)   
       2. Man-made 도로의 특이점, 맨홀, road joints, catchment basin(도로의 물이 모이는곳), 과속 방지턱 등   
 
    두 경우를 구분해야하지만 비슷한 패턴을 보이기 때문에 challenging 하다.    
-   Sebestyen et al.[[33](https://ieeexplore.ieee.org/document/7145123)]에 따르면 과속 방지턱은 움푹패인 곳과 구분할 수 있다. 차가 움푹패인곳을 지나면 처음에는 내려가고 이후 올라간다. 사람이 만든 bump에서는 처음에 올라가고, 이후 내려간다. 이런 패턴을 기준으로 구분할 수 있다.    
-   Sinharay et al.[[19](https://www.researchgate.net/publication/236255718_Low_Computational_Approach_for_Road_Condition_Monitoring_Using_Smartphones)]에서는 센서 데이터의 표준편차를 통해 potholes을 구분한다.   
-   Seraj et al.[[34](https://ris.utwente.nl/ws/portalfiles/portal/5493041/Seraj_et_al._-_RoADS.pdf)]에서는 3가지로 도로 표면을 구분한다. (심각한 anomalies, 약간의 anomalies, span)   
+   Sebestyen et al.[[33](https://ieeexplore.ieee.org/document/7145123)]에 따르면 과속 방지턱은 움푹패인 곳과 구분할 수 있다. 차가 움푹패인곳을 지나면 처음에는 내려가고 이후 올라간다. 사람이 만든 bump에서는 처음에 올라가고, 이후 내려간다. 이런 패턴을 기준으로 구분할 수 있다.       
    Harikrishnan and Gopi[[36](http://dx.doi.org/10.1109/JSEN.2017.2719865)]는 X-Z filter를 통해 potholes 와 과속방지턱을 구분한다.   
-   Eriksson et al.[[46](https://www.cs.uic.edu/~jakob/papers/p2-mobisys08.pdf)]에서는 pothole은 accelerometer sensor data의 x-direction의 variation이 커지도록 영향을 주지만 과속 방지턱은 x, y 두 방향 모두에 영향을 주고, x-direction의 variation을 작게 만든다.   
+   Eriksson et al.[[46](https://www.cs.uic.edu/~jakob/papers/p2-mobisys08.pdf)]에서는 pothole은 accelerometer sensor data의 x-direction의 variation이 커지도록 영향을 주지만 과속 방지턱은 x, y 두 방향 모두에 영향을 주고, x-direction의 variation을 작게 만든다고 제안했다.   
    
    **Speed Dependency**   
-   도로의 특이점 검출은 vehicle의 속도에도 큰 영향을 받는다. 
+   도로의 특이점 검출은 vehicle의 속도에도 큰 영향을 받는다.   
    Douangphachanh and Oneyama [[32](https://ieeexplore.ieee.org/document/6685585)]는 평균 속도가 road roughness estimation에 중요하다고 말한다. pothole과 같은 도로의 특이점을 지날 때 다른 속도로 가면 sensor data도 다른 모양을 보인다. 속도에 따른 센서 데이터의 모델링은 [[47](http://dx.doi.org/10.3390/s17020305)]에서 확인할 수 있다.   
    Fox et al.[[20](https://ieeexplore.ieee.org/document/7338353)]의 연구에서는 빠른 속도로는 도로 특이점 검출이 힘들다는 사실을 밝혔다.   
    Sebestyen et al.[[33](https://ieeexplore.ieee.org/document/7145123)]에서는 서로 다른 속도에서(15,30,60km/h) 데이터를 수집했다.다른 속도에서 수집된 데이터들은 30km/h에 맞게 normalize 되었다.   
