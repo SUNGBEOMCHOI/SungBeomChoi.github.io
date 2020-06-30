@@ -30,7 +30,75 @@ vibration-based 방법은 움직이는 vehicle에 장착된 motion 센서(accele
    * 센서의 noise 처리
    * 센서의 좌표계를 geographic 좌표계로 변환
 3. Processing for Feature Extraction   
-데이터를 통해 통하는 정보를 추출
+데이터를 통해 원원하는 정보를 추출
+
+34
+
+4. Post-Processing   
+
+35
+
+처리된 센서 데이터를 서버에 전송하고, 여러 sources를 통해 얻은 정보를 integration
+
+36
+
+5. Performanc Evaluation   
+
+37
+
+평가
+
+38
+
+
+
+39
+
+![figure1.jpg](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-30-Road_Surface_Monitoring_Using_Smartphone_Sensors_A_Review/figure1.jpg?raw=true)
+
+40
+
+
+
+41
+
+위의 과정에 대해 더 자세히 살펴보자.
+
+42
+
+1. **Sensor Data Collection**   
+
+43
+
+스마트폰의 센서는 크게 hardware-based(physical)센서, software-based(virtual)센서로 나눠진다. 
+
+44
+
+   * **physical 센서**는 raw 데이터 그 자체를 받아오는 센서이다. accelerometers, gyroscopes, magnetometers, light, tempurature 등의 정보를 수집한다.
+
+45
+
+   *  **software-based 센서**는 physical 센서로부터 받아오는 raw 데이터를 계산하여 새로운 정보를 내보내는 센서이다. linear acceleration, rotation, gravity 등의 정보를 얻는다.
+
+46
+
+![sensor](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-06-30-Road_Surface_Monitoring_Using_Smartphone_Sensors_A_Review/figure2.jpg?raw=true)
+
+47
+
+
+
+48
+
+대부분의 연구들은 accelerometer 센서를 통해서만 이루어졌다. 하지만 Yagi[[21](http://www.bumprecorder.com/wp-content/uploads/2013/12/225c966eb8450f15af993862b032ba6e.pdf)], Douangphachanh and Oneyama[[22](https://ieeexplore.ieee.org/document/7049855)], Mohamed[[30](https://www.researchgate.net/publication/266387427_RoadMonitor_An_Intelligent_Road_Surface_Condition_Monitoring_System)]의 연구는 accelerometer와 gyroscope를 결합하여 더 좋은 성능을 이끌어 냈다. 
+
+49
+
+
+
+50
+
+Data sampling rate는 특이점을검출하는 과정에서 중요한 역할을 한다. 적절한 sampling rate를 찾는 것은 여러 요인(available resources, 요구되는 정확도, type of data)에 의해 결정된다[[31](http://dx.doi.org/10.3390/s150102059)]. Douangphachanh and Oneyama[[32](https://ieeexplore.ieee.org/document/6685585)]의 연구에 따르면 도로의 특이점은 40-50Hz에서 검출이 가장 잘 되었다. 높은 sampling rate는 검출할 chances를 늘려주지만 배터리의 사용량, 저장소의 용량, data의 처리에 악영향을 준다. 적절한 sampling rate를 찾는 것은 speed of movement에도 크게 달라진다. Singaray[[19](https://www.researchgate.net/publica하는 정보를 추출
 4. Post-Processing   
 처리된 센서 데이터를 서버에 전송하고, 여러 sources를 통해 얻은 정보를 integration
 5. Performanc Evaluation   
