@@ -26,8 +26,8 @@ gravity와 vehicle의 vibration을 지우기 위해 filter를 적용해야한다
 vehicle이 stationary하면 acclerometer가 significant change를 보이지 않는다. 따라서 이런 data는 없애야한다. GPS를 통해 속도를 계산하고, 5kmph인 데이터는 제거해주었다.
 - Virtual Orientation
 sensor의 좌표를 vehicle의 좌표로 변경해주어야한다. 이상적인 값은 아래와 같다.   
-<img src="https://latex.codecogs.com/gif.latex?a_{x}=0&space;m&space;/&space;s^{2},&space;a_{y}=0&space;m&space;/&space;s^{2},&space;a_{z}=9.81&space;\mathrm{m}&space;/&space;\mathrm{s}^{2}" title="a_{x}=0 m / s^{2}, a_{y}=0 m / s^{2}, a_{z}=9.81 \mathrm{m} / \mathrm{s}^{2}" />
-sensor의 값으로 roll(alpha)과 pitch(beta)의 값을 표현하면 다음과 같다. 
+<img src="https://latex.codecogs.com/gif.latex?a_{x}=0&space;m&space;/&space;s^{2},&space;a_{y}=0&space;m&space;/&space;s^{2},&space;a_{z}=9.81&space;\mathrm{m}&space;/&space;\mathrm{s}^{2}" title="a_{x}=0 m / s^{2}, a_{y}=0 m / s^{2}, a_{z}=9.81 \mathrm{m} / \mathrm{s}^{2}" />   
+sensor의 값으로 roll(alpha)과 pitch(beta)의 값을 표현하면 다음과 같다.   
 <img src="https://latex.codecogs.com/gif.latex?\alpha=\tan&space;^{-1}\left(\frac{a_{y}}{a_{z}}\right)" title="\alpha=\tan ^{-1}\left(\frac{a_{y}}{a_{z}}\right)" />  <img src="https://latex.codecogs.com/gif.latex?\beta=\tan&space;^{-1}\left(\frac{-a_{x}}{\sqrt{a_{y}^{2}&plus;a_{z}^{2}}}\right)" title="\beta=\tan ^{-1}\left(\frac{-a_{x}}{\sqrt{a_{y}^{2}+a_{z}^{2}}}\right)" />
 
    reoriented acceleration은 다음과 같이 계산된다.   
@@ -74,7 +74,7 @@ reorientation된 데이터가 안된것보다 data가 더 smooth하고, event부
 ![template](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-07-05-Smart_Patrolling_An_Efficient_Road_Surface_Monitoring_Using_Smartphone_Sensor_and_Crowdsourcing/figure7.jpg?raw=true)
 Template을 보면 pothole에서는 acceleration값이 처음에는 감소하고, 나중에 증가하지만 bump에서는 처음에는 증가하고, 나중에 감소한다.   
 
-<img src="https://latex.codecogs.com/gif.latex?U&space;B=M&space;E&space;A&space;N(k)-\mu&space;*&space;S&space;T&space;D&space;E&space;V(k)" title="U B=M E A N(k)-\mu * S T D E V(k)" />
+<img src="https://latex.codecogs.com/gif.latex?U&space;B=M&space;E&space;A&space;N(k)-\mu&space;*&space;S&space;T&space;D&space;E&space;V(k)" title="U B=M E A N(k)-\mu * S T D E V(k)" />   
 k는 number of windows이고,  <img src="https://latex.codecogs.com/gif.latex?\mu" title="\mu" /> 는 경험적으로 1.1로 설정되었다. DTW를 통해 계산된 distance가 UB보다 작을 경우 그 위치는 anomaly로 체크된다.
 
 ### 다른 approach와의 비교
