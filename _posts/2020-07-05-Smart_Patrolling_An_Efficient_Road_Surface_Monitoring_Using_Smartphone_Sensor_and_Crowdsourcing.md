@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Smart Patrolling An Efficient Road Surface Monitoring Using Smartphone Sensor and Crowdsourcing Sensors : A Review
+title: Smart Patrolling An Efficient Road Surface Monitoring Using Smartphone Sensor and Crowdsourcing Sensors Review
 featured-img: 2020-07-05-Smart_Patrolling_An_Efficient_Road_Surface_Monitoring_Using_Smartphone_Sensor_and_Crowdsourcing/figure7
 ---
 
