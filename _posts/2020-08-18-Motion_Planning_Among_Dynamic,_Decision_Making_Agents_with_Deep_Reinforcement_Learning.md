@@ -61,7 +61,7 @@ reward : <img src="https://latex.codecogs.com/gif.latex?R_{c&space;o&space;l}\le
 ### C. Policy-Based Learning
 이 방법은 state transition의 추정이 없이 바로 policy를 생성하는 것이다. 최근 유행하는 A3C는 value와 policy를 모두 추정한다. 학습에는 다음과 같은 두 가지 loss function이 사용된다.   
 <img src="https://latex.codecogs.com/gif.latex?f_{v}=\left(R_{t}-V\left(\mathbf{s}_{t}^{j&space;n}\right)\right)^{2}" title="f_{v}=\left(R_{t}-V\left(\mathbf{s}_{t}^{j n}\right)\right)^{2}" />   
-<img src="https://latex.codecogs.com/gif.latex?f_{\pi}=\log&space;\pi\left(\mathbf{u}_{t}&space;\mid&space;\mathbf{s}_{t}^{j&space;n}\right)\left(R_{t}-V\left(\mathbf{s}_{t}^{j&space;n}\right)\right)&plus;\beta&space;\cdot&space;H\left(\pi\left(\mathbf{s}_{t}^{j&space;n}\right)\right)" title="f_{\pi}=\log \pi\left(\mathbf{u}_{t} \mid \mathbf{s}_{t}^{j n}\right)\left(R_{t}-V\left(\mathbf{s}_{t}^{j n}\right)\right)+\beta \cdot H\left(\pi\left(\mathbf{s}_{t}^{j n}\right)\right)" />       
+<img src="https://latex.codecogs.com/gif.latex?f_{\pi}=\log&space;\pi\left(\mathbf{u}_{t}&space;\mid&space;\mathbf{s}_{t}^{j&space;n}\right)\left(R_{t}-V\left(\mathbf{s}_{t}^{j&space;n}\right)\right)&plus;\beta&space;\cdot&space;H\left(\pi\left(\mathbf{s}_{t}^{j&space;n}\right)\right)" title="f_{\pi}=\log \pi\left(\mathbf{u}_{t} \mid \mathbf{s}_{t}^{j n}\right)\left(R_{t}-V\left(\mathbf{s}_{t}^{j n}\right)\right)+\beta \cdot H\left(\pi\left(\mathbf{s}_{t}^{j n}\right)\right)" />   
 Reward estimate <img src="https://latex.codecogs.com/gif.latex?R_{t}=\sum_{i=0}^{k-1}&space;\gamma^{i}&space;r_{t&plus;i}&plus;\gamma^{k}&space;V\left(\mathbf{s}_{t&plus;k}^{j&space;n}\right)" title="R_{t}=\sum_{i=0}^{k-1} \gamma^{i} r_{t+i}+\gamma^{k} V\left(\mathbf{s}_{t+k}^{j n}\right)" />   
 
 A3C에서는 병렬적으로 각 threads에 배치된 환경에서 각각의 agents가 결정을 내린다. A3C에서는 CPU상에서 병렬적으로 처리했던 것을 training experiences를 더 빠르게 병렬로 처리하기 위해 GPU에서 실행한 것을 GA3C라고 부른다. 
@@ -70,14 +70,16 @@ A3C에서는 병렬적으로 각 threads에 배치된 환경에서 각각의 age
 ### A. GA3C-CADRL
 이 approach의 목적은 optimal한 policy <img src="https://latex.codecogs.com/gif.latex?\pi:\left(\mathrm{s}_{t},&space;\tilde{\mathrm{s}_{t}}\right)&space;\mapsto&space;\mathbf{u}_{t}" title="\pi:\left(\mathrm{s}_{t}, \tilde{\mathrm{s}_{t}}\right) \mapsto \mathbf{u}_{t}" />를 찾는 것이다. 
 
-state는 agent의 관측 가능한 특성과 관측불가능한 특성으로 나눈다.
+state는 agent의 관측 가능한 특성과 관측불가능한 특성으로 나눈다.    
 <img src="https://latex.codecogs.com/gif.latex?\begin{aligned}&space;\mathbf{s}&space;&=\left[d_{g},&space;v_{p&space;r&space;e&space;f},&space;\psi,&space;r\right]&space;\\&space;\tilde{\mathbf{s}}^{o}&space;&=\left[\tilde{p}_{x},&space;\tilde{p}_{y},&space;\tilde{v}_{x},&space;\tilde{v}_{y},&space;\tilde{r},&space;\tilde{d}_{a},&space;\tilde{r}&plus;r\right]&space;\end{aligned}" title="\begin{aligned} \mathbf{s} &=\left[d_{g}, v_{p r e f}, \psi, r\right] \\ \tilde{\mathbf{s}}^{o} &=\left[\tilde{p}_{x}, \tilde{p}_{y}, \tilde{v}_{x}, \tilde{v}_{y}, \tilde{r}, \tilde{d}_{a}, \tilde{r}+r\right] \end{aligned}" />   
 <img src="https://latex.codecogs.com/gif.latex?d_{g}=\left\|\mathbf{p}_{g}-\mathbf{p}\right\|_{2}" title="d_{g}=\left\|\mathbf{p}_{g}-\mathbf{p}\right\|_{2}" />는 agent와 goal사이의 거리이다.    
-<img src="https://latex.codecogs.com/gif.latex?\tilde{d}_{a}=\|\mathbf{p}-\tilde{\mathbf{p}}\|_{2}" title="\tilde{d}_{a}=\|\mathbf{p}-\tilde{\mathbf{p}}\|_{2}" />는 다른 agent까지의 거리이다.    
+<img src="https://latex.codecogs.com/gif.latex?\tilde{d}_{a}=\|\mathbf{p}-\tilde{\mathbf{p}}\|_{2}" title="\tilde{d}_{a}=\|\mathbf{p}-\tilde{\mathbf{p}}\|_{2}" />는 다른 agent까지의 거리이다.
+   
 agent의 action space는 속도와 heading angle로 이뤄져있다. 총 11개의 action으로 나눴다.     
 <img src="https://latex.codecogs.com/gif.latex?v_{\text&space;{pref}}" title="v_{\text {pref}}" />: <img src="https://latex.codecogs.com/gif.latex?\pm\pi" title="\pm\pi" />/3
 <img src="https://latex.codecogs.com/gif.latex?\pm\pi" title="\pm\pi" />/6, 0   
 <img src="https://latex.codecogs.com/gif.latex?\frac{1}{2}&space;v_{p&space;r&space;e&space;f}" title="\frac{1}{2} v_{p r e f}" />, 0 : <img src="https://latex.codecogs.com/gif.latex?\pm\pi" title="\pm\pi" />/6, 0   
+   
 Reward function은 다음과 같다. 
 <img src="https://latex.codecogs.com/gif.latex?R_{c&space;o&space;l}\left(\mathbf{s}^{j&space;n}\right)=\left\{\begin{array}{ll}1&space;&&space;\text&space;{&space;if&space;}&space;\mathbf{p}=\mathbf{p}_{g}&space;\\&space;-0.25&space;&&space;\text&space;{&space;if&space;}&space;d_{\min&space;}<0&space;\\&space;-0.1&plus;0.05&space;\cdot&space;d_{\min&space;}&space;&&space;\text&space;{&space;if&space;}&space;0<d_{\min&space;}<0.2&space;\\&space;0&space;&&space;\text&space;{&space;otherwise&space;}\end{array}\right." title="R_{c o l}\left(\mathbf{s}^{j n}\right)=\left\{\begin{array}{ll}1 & \text { if } \mathbf{p}=\mathbf{p}_{g} \\ -0.25 & \text { if } d_{\min }<0 \\ -0.1+0.05 \cdot d_{\min } & \text { if } 0<d_{\min }<0.2 \\ 0 & \text { otherwise }\end{array}\right." />   
    
@@ -87,11 +89,11 @@ Reward function은 다음과 같다.
 ### B. Handling a Variable Number of Agents
 여러 learning-based collision avoidance methods의 문제점은 고정된 input size이다. 여기서는 Long short-term memory (LSTM)를 이용한다. LSTM을 이용하면 몇 개의 input이 들어오더라도 상관없이 fixed size output을 낼 수 있다. 
 
-![LSTM](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig2.JPG?raw=true)
+![LSTM](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig2.JPG?raw=true)   
 다음 그림과 같이  other agents의 observable states가 순차적으로 들어간다. LSTM은 새로운 input이 들어감에 따라서 오래된 정보는 잊혀지는 경향이 있다. 이런 점을 보완하고자 hidden state의 크기를 충분히 크게 해준다. 또한 agent로부터 거리가 먼 순서부터 넣도록 한다. 
 
-전체적인 모델은 다음과 같다.
-![Full Model](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig3.JPG?raw=true)
+전체적인 모델은 다음과 같다.   
+![Full Model](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig3.JPG?raw=true)   
 ### C. Training the Policy
 본 연구에서는 모델의 파라미터를 초기화시키기 위해 첫번째로 supervised learning을 했다. 이전의 연구인 CADRL을 통해 얻은 state-action-value pairs를 데이터로 하여 value를 예측하고 policy를 예측하는 모델을 훈련시켰다.  
 다음은 시뮬레이션을 통해 훈련할 수 있는 환경을 만들었다. 여기서 agent의 파라미터는 사람과 비슷하도록 <img src="https://latex.codecogs.com/gif.latex?r&space;\in[0.2,0.8]&space;\mathrm{m}" title="r \in[0.2,0.8] \mathrm{m}" />, <img src="https://latex.codecogs.com/gif.latex?v_{p&space;r&space;e&space;f}&space;\in[0.5,2.0]&space;\mathrm{m}&space;/&space;\mathrm{s}" title="v_{p r e f} \in[0.5,2.0] \mathrm{m} / \mathrm{s}" />로 구성했다. 
