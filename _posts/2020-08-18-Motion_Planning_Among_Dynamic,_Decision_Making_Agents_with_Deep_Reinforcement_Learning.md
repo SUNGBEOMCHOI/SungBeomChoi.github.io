@@ -5,9 +5,8 @@ featured-img: 2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_w
 ---
 
 #### 본 포스트는 Motion Planning Among Dynamic, Decision-Making Agents with Deep Reinforcement Learning의 리뷰이다.
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
 
-<iframe src='[https://www.youtube.com/watch?v=XHoXkWLhwYQ](https://www.youtube.com/watch?v=XHoXkWLhwYQ)' frameborder='1' allowfullscreen></iframe>
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/watch?v=XHoXkWLhwYQ' frameborder='1' allowfullscreen></iframe></div>
 
 ## Abstact
 로봇에서 사람들 사이를 부딪히지 않으면서 안전하고, 효과적으로 주행하는 것은 중요한 문제이다. 본 연구에서는 LSTM을 사용해서 사람들의 수가 몇 명이든지 주행할 수 있었다. 또한 이 알고리즘은 시뮬레이션 그리고 현실에서도 사람들 사이를 주행을 부드럽게 할 수 있었다.
