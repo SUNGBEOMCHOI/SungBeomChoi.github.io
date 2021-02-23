@@ -2,6 +2,8 @@
 layout: post
 title: Starship Technology CTO Post Review
 featured-img: 2020-06-10-starship_tech_CTO_post_review/starship_cto
+permalink: /things/starship_tech_CTO_post_review/
+category: things
 ---
 
 라스트마일 모빌리티 업체 스타쉽 테크놀로지의 CTO가 4년간의 경험을 공유한 포스트를 전달하고자 한다.

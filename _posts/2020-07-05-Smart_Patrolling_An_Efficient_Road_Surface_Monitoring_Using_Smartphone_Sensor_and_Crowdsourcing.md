@@ -2,6 +2,8 @@
 layout: post
 title: Smart Patrolling An Efficient Road Surface Monitoring Using Smartphone Sensor and Crowdsourcing Sensors Review
 featured-img: 2020-07-05-Smart_Patrolling_An_Efficient_Road_Surface_Monitoring_Using_Smartphone_Sensor_and_Crowdsourcing/figure7
+permalink: /paper_review/Smart_Patrolling_An_Efficient_Road_Surface_Monitoring_Using_Smartphone_Sensor_and_Crowdsourcing/
+category: paper_review
 ---
 
 #### 이 글은 [Smart Patrolling: An Efficient Road Surface Monitoring Using Smartphone Sensors and Crowdsourcing](https://www.sciencedirect.com/science/article/abs/pii/S1574119216301262) 논문의 리뷰이다.

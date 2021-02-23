@@ -2,6 +2,8 @@
 layout: post
 title: The Challenge of Supporting AV at Scale 리뷰
 featured-img: 2020-06-16-The_Challenge_of_Supporting_AV_at_Scale_Review/mobileye
+permalink: /things/The_Challenge_of_Supporting_AV_at_Scale_Review/
+category: things
 ---
 
 #### 이 포스트는 The Challenge of Supporting AV at Scale에 대한 리뷰이다. 

@@ -2,6 +2,8 @@
 layout: post
 title: Modeling of 4Wheel Skid Steering Mobile Robot
 featured-img: 2020-06-19-Modeling_of_4Wheel_Skid_Steering_Mobile_Robot/capture2
+permalink: /paper_review/Modeling_of_4Wheel_Skid_Steering_Mobile_Robot/
+category: paper_review
 ---
 
 #### 이글은 4wheel skid steering mobile robot의 물리적 모델링에 관한 포스트이다.
