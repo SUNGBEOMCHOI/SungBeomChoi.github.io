@@ -22,7 +22,8 @@ layout: compress
       <section class="blog">
         <div class="container">
           <div class="post-list" itemscope="" itemtype="http://schema.org/Blog">
-
+            host : {% request.get_host %}
+            url:{% url %}
             {% for post in request.get_host.posts %}
               {% if post.category}
                 {% include card.html %}
