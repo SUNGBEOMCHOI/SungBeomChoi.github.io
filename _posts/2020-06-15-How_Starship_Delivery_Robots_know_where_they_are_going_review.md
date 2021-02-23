@@ -2,6 +2,8 @@
 layout: post
 title: How Starship Delivery Robots know where they are going Review
 featured-img: 2020-06-15-How_Starship_Delivery_Robots_know_where_they_are_going_review/map
+permalink: /things/How_Starship_Delivery_Robots_know_where_they_are_going_review/
+category: things
 ---
 
 ### 이 포스트는 배달 로봇 회사 스타쉽 테크놀로지의 포스트인 How Starship Delivery Robots know where they are going의 리뷰이다.

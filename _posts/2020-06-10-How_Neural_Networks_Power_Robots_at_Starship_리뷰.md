@@ -2,6 +2,8 @@
 layout: post
 title: How Neural Networks Power Robots at Starship Review
 featured-img: 2020-06-10-How_Neural_Networks_Power_Robots_at_Starship_review/starship_technology
+permalink: /things/How_Neural_Networks_Power_Robots_at_Starship_review/
+category: things
 ---
 
 스타쉽이 어떻게 적은 computational resources와 lidar와 같은 비싼 센서를 쓰지 않으면서 실시간으로 잘 주행할 수 있을까? 

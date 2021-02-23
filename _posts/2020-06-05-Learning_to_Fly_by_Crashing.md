@@ -3,6 +3,8 @@ layout: post
 title: Learning to Fly by Crashing 논문 리뷰
 comments: true
 featured-img: 2020-06-05-Learning_to_Fly_by_Clashing/Learning_to_Fly_by_Crashing_모델구조
+permalink: /paper_review/Learning_to_Fly_by_Crashing/
+category: paper_review
 ---
 #### 논문: [Learning to Fly by Crashing](https://arxiv.org/abs/1704.05588)
 

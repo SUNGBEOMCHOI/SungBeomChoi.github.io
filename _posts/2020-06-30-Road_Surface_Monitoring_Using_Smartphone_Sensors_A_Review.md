@@ -2,6 +2,8 @@
 layout: post
 title: Road Surface Monitoring Using Smartphone Sensors:A_Review
 featured-img: 2020-06-30-Road_Surface_Monitoring_Using_Smartphone_Sensors_A_Review/figure1
+permalink: /paper_review/Road_Surface_Monitoring_Using_Smartphone_Sensors_A_Review/
+category: paper_review
 ---
 
 ### 이글은 [Road Surface Monitoring Using Smartphone Sensors: A Review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6263868/pdf/sensors-18-03845.pdf)를 정리한 포스트이다.
