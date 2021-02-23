@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Motion Planning Among Dynamic, Decision-Making Agents with Deep Reinforcement Learning review
-featured-img: 2020-08-18-Motion_Planning_Among_Dynamic_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig1
+featured-img: 2020-08-18-Motion_Planning_Among_Dynamic,_Decision_Making_Agents_with_Deep_Reinforcement_Learning/fig1
 permalink: /paper_review/Motion_Planning_Among_Dynamic_Decision_Making_Agents_with_Deep_Reinforcement_Learning/
 category: paper_review
 ---
