@@ -6,7 +6,6 @@ permalink: /things/Recent_Advances_in_Autoregressive_models_and_VAE/
 category: things
 
 ---
-
 #### 이 글은 정보과학회에서 진행하는 PRML 2021의 첫 번째 세션인 김세훈님의 Recent Advances in Autoregressive models and VAE에 대한 포스트이다.
 
 ## introduction
@@ -45,6 +44,7 @@ Measurement 는 bpd(bits/dim)을 사용하게 된다. bpd는 얼마나 적은 �
 픽셀 CNN에서 loss function은 다음과 같다.
 
 ![loss function](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-02-16-Recent_Advances_in_Autoregressive_models_and_VAE/fig13.JPG?raw=true)
+
 위에서 봤듯이 이전 픽셀들의 정보들이 주어지면 현재 픽셀을 잘 유추하도록 학습하는 것이다. 
 
 PixelCNN에서는 과거의 정보만 사용하고, 미래의 데이터의 영향을 없애기 위해 Masked 3*3 conv를 사용하였다. 
