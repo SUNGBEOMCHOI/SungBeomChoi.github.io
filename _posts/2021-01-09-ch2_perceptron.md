@@ -69,6 +69,7 @@ def NAND(x1, x2):
 
 ### XOR게이트
 입력이 같으면 0을 출력하고, 서로 다르면 1을 출력한다.
+
 ![perceptron](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-01-09-ch2_perceptron/fig7.jpg?raw=true){: width="300" height="300"}
 
 XOR 게이트는 한 층의 퍼셉트론으로 만드는 것은 불가능하다. 따라서 OR, NAND, AND게이트를 섞어서 XOR게이트를 만들 수 있다. 아래 그림과 같이 조합하면 가능하다.
