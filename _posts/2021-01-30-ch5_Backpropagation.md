@@ -50,6 +50,9 @@ class AddLayer:
         return dx, dy
 
 ```
+
+<br>
+
 #### 곱셈 계층
 
 ![MulLayer](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-01-30-ch5_Backpropagation/fig4.jpg?raw=true)
@@ -143,6 +146,8 @@ class Relu:
 
 ```
 
+<br>
+
 #### sigmoid 계층
 
 - 순전파
@@ -198,6 +203,8 @@ class Affine:
         return dx
 
 ```
+
+<br>
 
 #### Softmax-with-Loss 계층
 
