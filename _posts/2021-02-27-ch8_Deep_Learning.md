@@ -1,8 +1,8 @@
 ---
 layout: post
 title: (밑바닥부터 시작하는 딥러닝) 8장. 딥러닝
-featured-img: 2021-02-20-ch8_Deep_Learning/fig1
-permalink: /book_review/2021-02-20-ch8_Deep_Learning
+featured-img: 2021-02-27-ch8_Deep_Learning/fig1
+permalink: /book_review/2021-02-27-ch8_Deep_Learning
 category: book_review
 
 ---
@@ -198,19 +198,20 @@ print(acc) 0.996
 
 ### 층을 깊게 한다.
 
-### 학습의 효율성이 좋아진다.
+#### 학습의 효율성이 좋아진다.
 예를 들어 5*5 receptive field를 분석하기 위해서는 한층을 사용할 경우에는 25개의 파라미터가 필요하다. 하지만 두 층을 사용하면 18개의 파라미터만 학습시키면 된다. 
 
-#### 1층을 사용한 경우
+- 1층을 사용한 경우
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-02-27-ch8_Deep_Learning/fig3.jpg?raw=true)
 
-#### 2층을 사용한 경우
+- 2층을 사용한 경우
+
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-02-27-ch8_Deep_Learning/fig4.jpg?raw=true)
 
 <br>
 
-### 계층적으로 분석할 수 있다.
+#### 계층적으로 분석할 수 있다.
 예를들어 이미지를 보고, 클래스를 예측하는 분류문제에서 한층으로 한다고 하면 이미지에서 바로 어떤 클래스인지 맞춰야한다. 하지만 여러 층으로 나누게 되면 첫 번째 층에는 엣지나 blob 같은 간단한 특징을 뽑고, 층이 깊어질수록 조금 더 복잡한 특징을 추출하는 등 계층적으로 분석을 할 수 있다.
 
 <br>
