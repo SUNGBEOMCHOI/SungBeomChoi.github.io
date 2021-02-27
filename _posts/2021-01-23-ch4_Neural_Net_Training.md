@@ -33,8 +33,8 @@ def sum_squares_error(y, t):
     
 -   교차 엔트로피 오차
 분류문제에서 주로 사용한다. 
+
    ![MSE](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-01-23-ch4_Neural_Net_Training/fig7.jpg?raw=true)
-    $E=-\sum_{k} t_{k} \log y_{k}$
     
 ```python
 def cross_entropy_error(y, t):
