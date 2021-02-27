@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 3장. 신경망
+title: [밑바닥부터 시작하는 딥러닝, 3장] 신경망
 featured-img: 2021-01-16-ch3_Neural_Net/fig6
 permalink: /book_review/ch3_Neural_Net
 category: book_review

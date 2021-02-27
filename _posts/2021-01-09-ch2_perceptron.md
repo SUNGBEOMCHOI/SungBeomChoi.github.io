@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2장. 퍼셉트론
+title: [밑바닥부터 시작하는 딥러닝, 2장] 퍼셉트론
 featured-img: 2021-01-09-ch2_perceptron/fig1
 permalink: /book_review/ch2_perceptron/
 category: book_review
