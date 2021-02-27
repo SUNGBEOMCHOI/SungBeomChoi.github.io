@@ -22,6 +22,7 @@ category: book_review
 최적의 매개변수 값을 설정하기 위해서는 평가할 수 있는 지표가 필요하다. 신경망 학습에서는 손실 함수를 사용한다.
 
 -  오차제곱합
+
 회귀문제에서 주로 사용된다.
 
 ![MSE](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-01-23-ch4_Neural_Net_Training/fig6.jpg?raw=true)
@@ -32,6 +33,7 @@ def sum_squares_error(y, t):
 ```
     
 -   교차 엔트로피 오차
+
 분류문제에서 주로 사용한다. 
 
    ![MSE](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-01-23-ch4_Neural_Net_Training/fig7.jpg?raw=true)
