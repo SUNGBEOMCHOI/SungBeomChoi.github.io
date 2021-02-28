@@ -2,7 +2,7 @@
 layout: post
 title: (밑바닥부터 시작하는 딥러닝) 4장. 신경망 학습
 featured-img: 2021-01-23-ch4_Neural_Net_Training/fig4
-permalink: /book_review/ch3_Neural_Net
+permalink: /book_review/ch4_Neural_Net_Training
 category: book_review
 
 ---
