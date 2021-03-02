@@ -28,15 +28,15 @@ print(tf.__version__) # 2.4.1
 
 ## 난수 생성
 
+#### 같은 확률로 난수 생성
 ```python
-# 모두 같은 확률로 난수를 뽑음
 rand = tf.random.uniform([1], 0, 1) # tf.random.uniform(shape, 최소값, 최대값)
 print(rand) # tf.Tensor([0.6305238], shape=(1,), dtype=float32)
 
 ```
 <br>
-<br>
 
+#### 정규분포로 난수 생성
 ```python
 # 정규분포로 난수를 뽑음
 rand = tf.random.normal([4], 0, 1) # tf.random.noraml(shape, 평균, 표준편차)
@@ -212,6 +212,8 @@ for i in range(2001):
 2000 -0.015027795258891878
 
 ```
+
+<br>
 
 학습된 가중치가 실제로 맞는 값을 가르키는지 살펴보자.
 
@@ -470,6 +472,6 @@ plt.show()
 
 위에서 만들었던 XOR 2층 퍼셉트론의 학습하면서 기록된 loss그래프를 그려보자.
 
-loss가 주는것을 보면 학습이 된다는 것을 알 수 있다.
+loss가 감소하는것을 보면 학습이 된다는 것을 알 수 있다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-03-ch3_Start_Tensorflow/fig8.JPG?raw=true)
