@@ -43,7 +43,6 @@ filters는 필터의 갯수이다. 필터의 개수는 네트워크가 얼마나
 tf.keras.layers.Conv2D(kernel_size=(3,3),strides=(2,2),padding='valid',filters=16)
 
 ```
-
 <br>
 
 ### 풀링 레이어
@@ -56,9 +55,7 @@ tf.keras.layers.Conv2D(kernel_size=(3,3),strides=(2,2),padding='valid',filters=1
 tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2))
 
 ```
-
 <br>
-
 ### 드롭아웃 레이어
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-05-ch6_Convolution_Network/fig4.JPG?raw=true)
