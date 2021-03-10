@@ -22,7 +22,7 @@ category: book_review
 
 텐서플로 허브에 올라와 있는 모델은 hub.KerasLayer() 명령으로 tf.Keras에서 사용 가능한 레이어로 변환할 수 있다.
 
-output shape의 1001은 클래스의 갯수를 의미한다. 1000종류의 이미지와 이 가운데 어떤 것에도 속하지 않는다고 판달될
+output shape의 1001은 클래스의 갯수를 의미한다. 1000종류의 이미지와 이 가운데 어떤 것에도 속하지 않는다고 판달될때는 background를 반환한다.
 
 ```python
 import tensorflow_hub as hub
@@ -188,10 +188,6 @@ print('Top-1 correctness:', top_1 / len(all_image_paths) * 100, '%')
 !pip install kaggle
 
 ```
-
-나의 캐글 토큰
-
-{"username":"choisb3631","key":"7160372c8c2e5f9de4830a0e5adcdb40"}
 
 <br>
 
@@ -706,7 +702,7 @@ for n in range(epochs):
 
 ### content 텍스처 불러오기
 
-content 텍스처와 타깃 텍스처의 크기가 같아야한다. 이 둘은 서로 특징 추출값의 픽셀을 MSE로 비교하기 때문에 크기가 다르면 안된다. 반면 style 텍스처는 타깃 첵스처와 크기가 달라도 상관없다. Gram matrix 계산값은 각 레이어의 [채널수] * [채널수]만크의 값을 서로 비교하기 때문이다.
+content 텍스처와 타깃 텍스처의 크기가 같아야한다. 이 둘은 서로 특징 추출값의 픽셀을 MSE로 비교하기 때문에 크기가 다르면 안된다. 반면 style 텍스처는 타깃 첵스처와 크기가 달라도 상관없다. Gram matrix 계산값은 각 레이어의 [채널수] * [채널수]만큼의 값을 서로 비교하기 때문이다.
 
 ```python
 import matplotlib.pyplot as plt
