@@ -128,18 +128,18 @@ class BasicBlock(tf.keras.layers.Layer):
     initializer = tf.keras.initializers.HeNormal()
     l2 = tf.keras.regularizers.l2(0.0001)
     self.conv1 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3), 
-strides=stride, padding='same', kernel_regularizer=l2, 
-kernel_initializer=initializer)
+                  strides=stride, padding='same', kernel_regularizer=l2, 
+                  kernel_initializer=initializer)
     self.bn1 = tf.keras.layers.BatchNormalization()
     self.conv2 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3),
-strides=1, padding='same', kernel_regularizer=l2, 
-kernel_initializer=initializer)
+                  strides=1, padding='same', kernel_regularizer=l2, 
+                  kernel_initializer=initializer)
     self.bn2 = tf.keras.layers.BatchNormalization()
     if stride != 1:
       self.downsample = tf.keras.Sequential()
       self.downsample.add(tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(1,1),
-													strides=stride, kernel_regularizer=l2,
-													kernel_initializer=initializer))
+                  strides=stride, kernel_regularizer=l2,
+                  kernel_initializer=initializer))
       self.downsample.add(tf.keras.layers.BatchNormalization())
     else:
       self.downsample = lambda x: x
@@ -246,7 +246,7 @@ print('train oupput shape: ', y_train.shape) # (50000, 1)
 
 model = get_model()
 
-lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1,\ 
+lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, 
 																												patience=2, min_lr=0.001)
 early_stopping = tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss')
 
