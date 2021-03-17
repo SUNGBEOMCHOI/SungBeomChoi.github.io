@@ -177,14 +177,14 @@ class ResNet(tf.keras.Model):
     initializer = tf.keras.initializers.HeNormal()
     l2 = tf.keras.regularizers.l2(0.0001)
     self.conv1 = tf.keras.layers.Conv2D(filters=16, kernel_size=(3, 3), strides=1, 
-													padding='same', kernel_regularizer=l2, kernel_initializer=initializer)
+                    padding='same', kernel_regularizer=l2, kernel_initializer=initializer)
     self.bn1 = tf.keras.layers.BatchNormalization()
     self.layer1 = make_basic_block_layer(filter_num=16, blocks=layer_params[0], stride=2)
     self.layer2 = make_basic_block_layer(filter_num=32, blocks=layer_params[1], stride=2)
     self.layer3 = make_basic_block_layer(filter_num=64, blocks=layer_params[2], stride=2)
     self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
     self.fc = tf.keras.layers.Dense(units=NUM_CLASSES, activation=tf.keras.activations.softmax,
-													 kernel_regularizer=l2, kernel_initializer=initializer)
+                    kernel_regularizer=l2, kernel_initializer=initializer)
 
   def call(self, inputs):
     x = self.conv1(inputs)
@@ -202,7 +202,7 @@ def get_model():
   model = ResNet(layer_params=[3, 3, 3]) # basic block으로 3쌍의 conv-bn layer를 쌓음
   model.build(input_shape=(None, IMAGE_WIDTH, IMAGE_HEIGHT, CHANNELS))
   model.compile(optimizer=tf.keras.optimizers.SGD(lr=0.1, momentum=0.9, nesterov=False), 
-														loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+                    loss='sparse_categorical_crossentropy', metrics=['accuracy'])
   model.summary()
   return model
 
@@ -246,8 +246,7 @@ print('train oupput shape: ', y_train.shape) # (50000, 1)
 
 model = get_model()
 
-lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, 
-																												patience=2, min_lr=0.001)
+lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=2, min_lr=0.001)
 early_stopping = tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss')
 
 history = model.fit(X_train, y_train, epochs=180, validation_split=0.1, 
