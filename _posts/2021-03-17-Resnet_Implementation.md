@@ -128,11 +128,12 @@ class BasicBlock(tf.keras.layers.Layer):
     initializer = tf.keras.initializers.HeNormal()
     l2 = tf.keras.regularizers.l2(0.0001)
     self.conv1 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3), 
-                                strides=stride, padding='same', kernel_regularizer=l2, kernel_initializer=initializer)
+strides=stride, padding='same', kernel_regularizer=l2, 
+kernel_initializer=initializer)
     self.bn1 = tf.keras.layers.BatchNormalization()
     self.conv2 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3),
-													strides=1, padding='same', kernel_regularizer=l2, 
-                          kernel_initializer=initializer)
+strides=1, padding='same', kernel_regularizer=l2, 
+kernel_initializer=initializer)
     self.bn2 = tf.keras.layers.BatchNormalization()
     if stride != 1:
       self.downsample = tf.keras.Sequential()
