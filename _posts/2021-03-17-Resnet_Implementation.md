@@ -127,18 +127,18 @@ class BasicBlock(tf.keras.layers.Layer):
     super(BasicBlock, self).__init__()
     initializer = tf.keras.initializers.HeNormal()
     l2 = tf.keras.regularizers.l2(0.0001)
-    self.conv1 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3), 
-													strides=stride, padding='same', kernel_regularizer=l2, 
+    self.conv1 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3),\ 
+													strides=stride, padding='same', kernel_regularizer=l2,\ 
 													kernel_initializer=initializer)
     self.bn1 = tf.keras.layers.BatchNormalization()
-    self.conv2 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3), 
-													strides=1, padding='same', kernel_regularizer=l2, 
+    self.conv2 = tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(3,3),\ 
+													strides=1, padding='same', kernel_regularizer=l2,\ 
 													kernel_initializer=initializer)
     self.bn2 = tf.keras.layers.BatchNormalization()
     if stride != 1:
       self.downsample = tf.keras.Sequential()
-      self.downsample.add(tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(1,1), 
-													strides=stride, kernel_regularizer=l2, 
+      self.downsample.add(tf.keras.layers.Conv2D(filters=filter_num, kernel_size=(1,1),\ 
+													strides=stride, kernel_regularizer=l2,\ 
 													kernel_initializer=initializer))
       self.downsample.add(tf.keras.layers.BatchNormalization())
     else:
@@ -183,7 +183,7 @@ class ResNet(tf.keras.Model):
     self.layer2 = make_basic_block_layer(filter_num=32, blocks=layer_params[1], stride=2)
     self.layer3 = make_basic_block_layer(filter_num=64, blocks=layer_params[2], stride=2)
     self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
-    self.fc = tf.keras.layers.Dense(units=NUM_CLASSES, activation=tf.keras.activations.softmax,
+    self.fc = tf.keras.layers.Dense(units=NUM_CLASSES, activation=tf.keras.activations.softmax,\
 													 kernel_regularizer=l2, kernel_initializer=initializer)
 
   def call(self, inputs):
@@ -246,7 +246,7 @@ print('train oupput shape: ', y_train.shape) # (50000, 1)
 
 model = get_model()
 
-lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, 
+lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1,\ 
 																												patience=2, min_lr=0.001)
 early_stopping = tf.keras.callbacks.EarlyStopping(patience=3, monitor='val_loss')
 
