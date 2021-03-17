@@ -12,7 +12,11 @@ category: paper_implementation
 
 <br>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SUNGBEOMCHOI/Paper_implementation/blob/main/ResNet%20for%20CIFAR/ResNet.ipynb)
+<p align="center">
+  <a href="https://colab.research.google.com/github/SUNGBEOMCHOI/Paper_implementation/blob/main/ResNet%20for%20CIFAR/ResNet.ipynb">
+    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="50" width="180"/>
+  </a>
+</p>
 
 <br>
 
