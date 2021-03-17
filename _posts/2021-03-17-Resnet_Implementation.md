@@ -12,6 +12,10 @@ category: paper_implementation
 
 <br>
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SUNGBEOMCHOI/Paper_implementation/blob/main/ResNet%20for%20CIFAR/ResNet.ipynb)
+
+<br>
+
 #### 주의
 
 저는 딥러닝 초보이므로 논문을 구현함에 있어서 잘못된 부분이 있을 수 있습니다. 의견을 댓글로 남겨주시면 감사하겠습니다.
