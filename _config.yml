@@ -10,6 +10,9 @@ github_username:  SUNGBEOMCHOI # replace with your_github_username or comment to
 markdown: kramdown
 highlighter: rouge # or pygments or null
 theme: jekyll-sleek
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 exclude:
   - README.md
   - node_modules
