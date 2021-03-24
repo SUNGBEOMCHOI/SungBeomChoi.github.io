@@ -62,15 +62,11 @@ content representation의 경우와 마찬가지로 앞쪽의 레이어에서는
 
 $\vec{a}$를 original image, $\vec{x}$를 generated image라 하고, $A^{l}$와 $G^{l}$를 그들의 style representation 이라 하면 레이어 $l$에서의 total loss는 다음과 같이 정의한다.
 
-$$
-E_{l}=\frac{1}{4 N_{l}^{2} M_{l}^{2}} \sum_{i, j}\left(G_{i j}^{l}-A_{i j}^{l}\right)^{2}
-$$
+$E_{l}=\frac{1}{4 N_{l}^{2} M_{l}^{2}} \sum_{i, j}\left(G_{i j}^{l}-A_{i j}^{l}\right)^{2}$
 
 그리고 total style loss는 다음과 같다.
 
-$$
-\mathcal{L}_{\text {style }}(\vec{a}, \vec{x})=\sum_{l=0}^{L} w_{l} E_{l}
-$$
+$\mathcal{L}_{\text {style }}(\vec{a}, \vec{x})=\sum_{l=0}^{L} w_{l} E_{l}$
 
 여기서 $w_{l}$은 각 레이어의 error에 얼마나 가중치를 줄지를 의미한다. 위의 loss에 대해서 generated image $\vec{x}$를 갱신하는 방향으로 back-propagation을 진행한다.
 
@@ -84,9 +80,7 @@ style of an artwork $\vec{a}$를 사진 $\vec{p}$에 옮기기 위해서 새로 
 
 그리고 아래의 loss를 최소화하는 방향으로 generated image를 갱신한다.
 
-$$
-\mathcal{L}_{\text {total }}(\vec{p}, \vec{a}, \vec{x})=\alpha \mathcal{L}_{\text {content }}(\vec{p}, \vec{x})+\beta \mathcal{L}_{\text {style }}(\vec{a}, \vec{x})
-$$
+$\mathcal{L}_{\text {total }}(\vec{p}, \vec{a}, \vec{x})=\alpha \mathcal{L}_{\text {content }}(\vec{p}, \vec{x})+\beta \mathcal{L}_{\text {style }}(\vec{a}, \vec{x})$
 
 $\alpha$와 $\beta$는 얼마나 content와 style representation을 반영할지에 대한 weight factor이다. 저자는 L-BFGS를 optmisation을 위해 사용했다.
 
