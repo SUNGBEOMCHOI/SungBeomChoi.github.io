@@ -42,7 +42,7 @@ use_math: true
 
 서로 다른 레이어에서 추출된 Image 정보를 시각화하기 위해 white noise 이미지에 original image에 대한 gradient descent를 사용한다. $\vec{p}$를 original image, $\vec{x}$를 generated image, $P^{l}$ 와 $F^{l}$를 레이어$l$에서 그들의 feaure representation이라고 하자. 그러면 두 feature representation의 squared-error loss를 다음과 같이 정의할 수 있다.
 
-$$\mathcal{L}_{\text {content }}(\vec{p}, \vec{x}, l)=\frac{1}{2} \sum_{i, j}\left(F_{i j}^{l}-P_{i j}^{l}\right)^{2}$$
+![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-22-Style-Transfer-Review/fig10.JPG?raw=true)
 
 이후 위의 loss에 대해서 generated image $\vec{x}$를 갱신하는 방향으로 back-propagation을 진행한다. 시간이 지나면서 generated image는 점점 original image와 가까워지는 방향으로 진행된다. 다음 그림은 레이어에 따른 representation의 정도이다.
 
@@ -66,7 +66,7 @@ $E_{l}=\frac{1}{4 N_{l}^{2} M_{l}^{2}} \sum_{i, j}\left(G_{i j}^{l}-A_{i j}^{l}\
 
 그리고 total style loss는 다음과 같다.
 
-$\mathcal{L}_{\text {style }}(\vec{a}, \vec{x})=\sum_{l=0}^{L} w_{l} E_{l}$
+![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-22-Style-Transfer-Review/fig11.JPG?raw=true)
 
 여기서 $w_{l}$은 각 레이어의 error에 얼마나 가중치를 줄지를 의미한다. 위의 loss에 대해서 generated image $\vec{x}$를 갱신하는 방향으로 back-propagation을 진행한다.
 
@@ -80,7 +80,7 @@ style of an artwork $\vec{a}$를 사진 $\vec{p}$에 옮기기 위해서 새로 
 
 그리고 아래의 loss를 최소화하는 방향으로 generated image를 갱신한다.
 
-$\mathcal{L}_{\text {total }}(\vec{p}, \vec{a}, \vec{x})=\alpha \mathcal{L}_{\text {content }}(\vec{p}, \vec{x})+\beta \mathcal{L}_{\text {style }}(\vec{a}, \vec{x})$
+![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-22-Style-Transfer-Review/fig12.JPG?raw=true)
 
 $\alpha$와 $\beta$는 얼마나 content와 style representation을 반영할지에 대한 weight factor이다. 저자는 L-BFGS를 optmisation을 위해 사용했다.
 
@@ -90,7 +90,7 @@ $\alpha$와 $\beta$는 얼마나 content와 style representation을 반영할지
 
 ## Result
 
-아래 그림은 content representation을 위해서는 conv4_2 layer를 사용하고, style representation을 위해서는 conv1_1, 2_1, 3_1, 4_1, 5_1을 사용하여 나온 결과이다. 또 각 레이어의 $w_{l}$는 모두 동일하게 1/5를 사용해주었다. $\alpha / \beta$의 경우 B에서는 $1_10^{-5}$, C에서는 $8_10^{-4}$, D에서는 $5_10^{-3}$, E에서는 $5_10^{-4}$을 사용해주었다.
+아래 그림은 content representation을 위해서는 conv4_2 layer를 사용하고, style representation을 위해서는 conv1_1, 2_1, 3_1, 4_1, 5_1을 사용하여 나온 결과이다. 또 각 레이어의 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-22-Style-Transfer-Review/fig13.JPG?raw=true)$는 모두 동일하게 1/5를 사용해주었다. $\alpha / \beta$의 경우 B에서는 $1_10^{-5}$, C에서는 $8_10^{-4}$, D에서는 $5_10^{-3}$, E에서는 $5_10^{-4}$을 사용해주었다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-03-22-Style-Transfer-Review/fig4.JPG?raw=true)
 
