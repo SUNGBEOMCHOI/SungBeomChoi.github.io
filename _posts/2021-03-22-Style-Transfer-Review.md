@@ -4,6 +4,7 @@ title: Image Style Transfer Using Convolutional Neural Networks 리뷰
 featured-img: 2021-03-22-Style-Transfer-Review/fig8
 permalink: /paper_review/2021-03-22-Style-Transfer-Review
 category: paper_implementation
+use_math: true
 
 ---
 
