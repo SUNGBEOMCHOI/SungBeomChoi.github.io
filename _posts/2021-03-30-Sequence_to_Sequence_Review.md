@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sequence to Sequence Learning with Neural Networks 리뷰
-featured-img: 2021-03-30-Sequence_to_Sequence_Review/fig2
+featured-img: 2021-03-30-Sequence_to_Sequence_Review/fig1
 permalink: /paper_review/2021-03-30-Sequence_to_Sequence_Review
 category: paper_review
 use_math: true
