@@ -1,8 +1,8 @@
 ---
 layout: post
 title: (밑바닥부터 시작하는 딥러닝2) 1장. 신경망
-featured-img: 2021-11-20-ch1_Reviewing neural_networks/fig1
-permalink: /book_review/ch1_Reviewing neural_networks
+featured-img: 2021-11-20-ch1_Reviewing_neural_networks/fig1
+permalink: /book_review/ch1_Reviewing_neural_networks
 category: book_review
 
 ---
@@ -27,6 +27,7 @@ print(W.ndim) # 2
 
 ```
 
+
 ### 행렬의 원소별 연산
 
 ```python
@@ -40,6 +41,7 @@ print(W * X)
 #       [12, 20, 30]])
 
 ```
+
 
 ### 브로드캐스트
 
@@ -62,6 +64,7 @@ print(A * b)
 
 ```
 
+
 ### 벡터의 내적과 행렬의 곱
 
 ```python
@@ -76,6 +79,7 @@ B = np.array([[5, 6], [7, 8]])
 print(np.matmul(A, B))# [[19 22] [43 50]]
 
 ```
+
 
 ## 신경망의 추론
 
@@ -130,6 +134,7 @@ a = sigmoid(a)
 s = np.matmul(a, W2) + b2 # 출력층
 
 ```
+
 
 ### 계층으로 클래스화 및 순전파 구현
 
@@ -205,9 +210,12 @@ array([[ 0.86840912,  3.07671248, -0.90881986],
 
 ```
 
+
+
 ## 신경망의 학습
 
 좋은 추론을 위해 학습을 먼저 수행하고, 그 학습된 매개변수를 이용해 추론을 수행한다. 신경망의 학습은 최적의 매개변수 값을 찾는 작업이다.
+
 
 ### 손실함수
 
@@ -249,17 +257,20 @@ def cross_entropy_error(y, t):
 
 ```
 
+
 ### 미분과 기울기
 
 벡터의 각 원소에 대한 미분을 정리한 것이 기울기(gradient)이다. 행렬 W가 m * n 행렬이라면, L = g(W) 함수의 기울기는 다음과 같이 쓸 수 있다. W와 기울기의 형상이 같다는 것이 중요한 특성이다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig11.JPG?raw=true)
 
+
 ### 연쇄 법칙
 
 신경망의 기울기는 오차역전파법(back-propagation)을 통해 구할 수 있다. 오차역전파법을 알기 위해서는 연쇄 법칙(chain rule)을 이해해야한다. 연쇄 법칙이란 합성함수에 대한 미분 법칙이다. y = f(x)와 z = g(y)라는 두 함수가 있다. 그러면 z = g(f(x))가 되어, 최종 출력 z는 두 함수를 조합해 계산할 수 있다. 이 때 이 합성함수의 미분은 다음과 같이 구할 수 있다. x에 대한 z의 미분은 y = f(x)의 미분과 z = g(y)의 미분을 곱하면 구해진다. 이것이 연쇄법칙이다. 연쇄법칙을 통하면 다루는 함수가 아무리 복잡해도 그 미분은 개별 함수의 미분들을 통해 구할 수 있기 때문이다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig12.JPG?raw=true)
+
 
 ### 계산 그래프
 
@@ -269,13 +280,16 @@ def cross_entropy_error(y, t):
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig13.JPG?raw=true)
 
+
 -   곱셈 노드
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig14.JPG?raw=true)
 
+
 -   분기 노드
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig15.JPG?raw=true)
+
 
 -   Repeat 노드
     
@@ -292,6 +306,7 @@ dx = np.sum(dy, axis=0, keepdims=True) # 역전파 (1, 8)
 
 ```
 
+
 -   Sum 노드
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig25.JPG?raw=true)
@@ -305,6 +320,7 @@ dy = np.random.randn(1, D) # 무작위 기울기 (1, 8)
 dx = np.repeat(dy, N, axis=0) # 역전파 (7, 8)
 
 ```
+
 
 -   Matmul 노드
 
@@ -335,7 +351,10 @@ class MatMul:
 
 ```
 
+
+
 ### 기울기 도출과 역전파 구현
+
 
 -   sigmoid 계층
 
@@ -357,6 +376,7 @@ class Sigmoid:
         return dx
 
 ```
+
 
 -   Affine 계층
 
@@ -386,6 +406,7 @@ class Affine:
         return dx
 
 ```
+
 
 -   Softmax with Loss 계층
 
@@ -430,6 +451,7 @@ class SoftmaxWithLoss:
 
 ```
 
+
 ### 가중치 갱신
 
 학습을 할 때 먼저 오차역전파법으로 가중치의 기울기를 얻는다. 이 기울기는 현재의 가중치 매개변수에서 손실을 가장 크게 하는 방향을 가리킨다. 따라서 매개변수를 그 기울기와 반대 방향으로 갱신하면 손실을 줄일 수 있다. 이것이 바로 경사하강법이다. 가중치 갱신 기법의 종류는 아주 다양한데, 여기서는 확률적경사하강법(SGD)을 구현한다.
@@ -446,6 +468,8 @@ class SGD:
             params[i] -= self.lr * grads[i]
 
 ```
+
+
 
 ## 신경망으로 문제 풀기
 
@@ -482,6 +506,7 @@ print('x', x.shape) # (300, 2)
 print('t', t.shape) # (300, 3)
 
 ```
+
 
 ### 신경망 구현
 
@@ -529,6 +554,7 @@ class TwoLayerNet:
         return dout
 
 ```
+
 
 ### 학습용 코드
 
@@ -605,6 +631,7 @@ plt.show()
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig24.JPG?raw=true)
 
 손실이 에폭이 지날수록 감소하는 것을 확인할 수 있다.
+
 
 ### Trainer 클래스
 
@@ -707,9 +734,12 @@ trainer.plot()
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig24.JPG?raw=true)
 
+
+
 ## 계산 고속화
 
 신경망의 학습과 추론에 드는 연산량은 상당하다. 빠르게 계산하기 위해 비트정밀도와 GPU에 대해 알아본다.
+
 
 ### 비트 정밀도
 
@@ -734,6 +764,7 @@ c = np.random.randn(3).astype('f')
 print(c.dtype) # dtype('float32')
 
 ```
+
 
 ### GPU(쿠파이)
 
