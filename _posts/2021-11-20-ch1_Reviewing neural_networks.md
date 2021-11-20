@@ -27,6 +27,7 @@ print(W.ndim) # 2
 
 ```
 
+<br>
 
 ### 행렬의 원소별 연산
 
@@ -42,6 +43,7 @@ print(W * X)
 
 ```
 
+<br>
 
 ### 브로드캐스트
 
@@ -64,6 +66,7 @@ print(A * b)
 
 ```
 
+<br>
 
 ### 벡터의 내적과 행렬의 곱
 
@@ -80,6 +83,8 @@ print(np.matmul(A, B))# [[19 22] [43 50]]
 
 ```
 
+<br>
+<br>
 
 ## 신경망의 추론
 
@@ -135,6 +140,7 @@ s = np.matmul(a, W2) + b2 # 출력층
 
 ```
 
+<br>
 
 ### 계층으로 클래스화 및 순전파 구현
 
@@ -210,12 +216,14 @@ array([[ 0.86840912,  3.07671248, -0.90881986],
 
 ```
 
-
+<br>
+<br>
 
 ## 신경망의 학습
 
 좋은 추론을 위해 학습을 먼저 수행하고, 그 학습된 매개변수를 이용해 추론을 수행한다. 신경망의 학습은 최적의 매개변수 값을 찾는 작업이다.
 
+<br>
 
 ### 손실함수
 
@@ -257,6 +265,7 @@ def cross_entropy_error(y, t):
 
 ```
 
+<br>
 
 ### 미분과 기울기
 
@@ -264,6 +273,7 @@ def cross_entropy_error(y, t):
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig11.JPG?raw=true)
 
+<br>
 
 ### 연쇄 법칙
 
@@ -271,6 +281,7 @@ def cross_entropy_error(y, t):
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig12.JPG?raw=true)
 
+<br>
 
 ### 계산 그래프
 
@@ -280,16 +291,19 @@ def cross_entropy_error(y, t):
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig13.JPG?raw=true)
 
+<br>
 
 -   곱셈 노드
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig14.JPG?raw=true)
 
+<br>
 
 -   분기 노드
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig15.JPG?raw=true)
 
+<br>
 
 -   Repeat 노드
     
@@ -306,6 +320,7 @@ dx = np.sum(dy, axis=0, keepdims=True) # 역전파 (1, 8)
 
 ```
 
+<br>
 
 -   Sum 노드
 
@@ -321,6 +336,7 @@ dx = np.repeat(dy, N, axis=0) # 역전파 (7, 8)
 
 ```
 
+<br>
 
 -   Matmul 노드
 
@@ -351,7 +367,7 @@ class MatMul:
 
 ```
 
-
+<br>
 
 ### 기울기 도출과 역전파 구현
 
@@ -377,6 +393,7 @@ class Sigmoid:
 
 ```
 
+<br>
 
 -   Affine 계층
 
@@ -407,6 +424,7 @@ class Affine:
 
 ```
 
+<br>
 
 -   Softmax with Loss 계층
 
@@ -451,6 +469,7 @@ class SoftmaxWithLoss:
 
 ```
 
+<br>
 
 ### 가중치 갱신
 
@@ -469,7 +488,8 @@ class SGD:
 
 ```
 
-
+<br>
+<br>
 
 ## 신경망으로 문제 풀기
 
@@ -507,6 +527,7 @@ print('t', t.shape) # (300, 3)
 
 ```
 
+<br>
 
 ### 신경망 구현
 
@@ -555,6 +576,7 @@ class TwoLayerNet:
 
 ```
 
+<br>
 
 ### 학습용 코드
 
@@ -632,6 +654,7 @@ plt.show()
 
 손실이 에폭이 지날수록 감소하는 것을 확인할 수 있다.
 
+<br>
 
 ### Trainer 클래스
 
@@ -735,11 +758,14 @@ trainer.plot()
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-20-ch1_Reviewing_neural_networks/fig24.JPG?raw=true)
 
 
+<br>
+<br>
 
 ## 계산 고속화
 
 신경망의 학습과 추론에 드는 연산량은 상당하다. 빠르게 계산하기 위해 비트정밀도와 GPU에 대해 알아본다.
 
+<br>
 
 ### 비트 정밀도
 
@@ -765,6 +791,7 @@ print(c.dtype) # dtype('float32')
 
 ```
 
+<br>
 
 ### GPU(쿠파이)
 
