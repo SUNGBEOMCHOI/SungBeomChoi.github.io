@@ -110,6 +110,7 @@ class Embedding:
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-23-ch4_word2vec_improvement/fig7.JPG?raw=true)
 
+<br>
 후반부를 더 간단하게 하기위해 Embedding 계층과 내적 처리를 합친 Embedding Dot 계층을 도입한다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-23-ch4_word2vec_improvement/fig8.JPG?raw=true)
@@ -159,10 +160,12 @@ np.random.choice(words, p=p) # 'you'
 
 ```
 
+<br>
 조금 수정을 하자면 확률분포에서 한가지를 수정한다. 아래식과 같은 새로운 확률분포를 사용하는 것이다. 이렇게 변경하는 이유는 출현 확률이 낮은 단어를 버리지 않기 위해서이다. 0.75 제곱을 함으로서 원래 확률이 낮은 단어의 확률을 살짝 높일 수 있다.
 
 ![](https://github.com/SUNGBEOMCHOI/SungBeomChoi.github.io/blob/master/assets/img/posts/2021-11-23-ch4_word2vec_improvement/fig10.JPG?raw=true)
 
+<br>
 종합하자면 네거티브 샘플링은 말뭉치에서 단어의 확률분포를 만들고, 다시 0.75를 제곱한 다음, np.random.choice()를 사용해 부정적 예를 샘플링한다. 이 처리를 담당하는 클래스를 구현해보자.
 
 ```python
