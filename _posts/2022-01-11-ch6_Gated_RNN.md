@@ -1,8 +1,8 @@
 ---
 layout: post
 title: (밑바닥부터 시작하는 딥러닝2) 6장. 게이트가 추가된 RNN
-featured-img: 2022-1-11-ch6_Gated_RNN/fig17
-permalink: /book_review/2022-1-11-ch6_Gated_RNN
+featured-img: 2022-01-11-ch6_Gated_RNN/fig17
+permalink: /book_review/2022-01-11-ch6_Gated_RNN
 category: book_review
 use_math: true
 
